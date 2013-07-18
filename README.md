@@ -1,0 +1,4 @@
+tips
+====
+
+jQuery Tooltip Plugin
