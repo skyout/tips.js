@@ -1,0 +1,78 @@
+@charset "UTF-8"
+@import "_variables"
+@import "_mixins"
+
+aside
+
+    &.tooltip
+        @include border-radius
+        background: #EA5B54
+        color: #fff
+        display: none
+        font-size: $font-size - 2
+        margin: 0
+        max-width: 250px
+        padding: 9px 13px
+        position: absolute
+        z-index: 100
+
+        // arrow
+        &:after
+            border-top: 7px solid transparent
+            border-bottom: 7px solid transparent
+            border-right: 7px solid #EA5B54
+            content: ' '
+            height: 0
+            left: -7px
+            position: absolute
+            top: 13px
+            width: 0
+
+        // tooltip from the left with right arrow
+        &.left
+
+            &:after
+                border-top: 7px solid transparent
+                border-bottom: 7px solid transparent
+                border-left: 7px solid #EA5B54
+                border-right: 0
+                content: ' '
+                height: 0
+                left: auto
+                position: absolute
+                right: -7px
+                top: 13px
+                width: 0
+
+        // tooltip from the bottom with top arrow
+        &.bottom
+
+            &:after
+                border-left: 7px solid transparent
+                border-right: 7px solid transparent
+                border-bottom: 7px solid #EA5B54
+                border-top: 0
+                content: ' '
+                height: 0
+                left: 50%
+                margin-left: -7px
+                position: absolute
+                top: -7px
+                width: 0
+
+        // tooltip from the bottom with top arrow
+        &.top
+
+            &:after
+                border-left: 7px solid transparent
+                border-right: 7px solid transparent
+                border-top: 7px solid #EA5B54
+                border-bottom: 0
+                bottom: -7px
+                content: ' '
+                height: 0
+                left: 50%
+                margin-left: -7px
+                position: absolute
+                top: auto
+                width: 0
