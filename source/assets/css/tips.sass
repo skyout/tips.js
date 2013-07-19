@@ -4,9 +4,10 @@
 
 aside
 
+    // tooltip style
     &.tooltip
         @include border-radius
-        background: #EA5B54
+        background: #222
         color: #fff
         display: none
         font-size: $font-size - 2
@@ -20,7 +21,7 @@ aside
         &:after
             border-top: 7px solid transparent
             border-bottom: 7px solid transparent
-            border-right: 7px solid #EA5B54
+            border-right: 7px solid #222
             content: ' '
             height: 0
             left: -7px
@@ -34,7 +35,7 @@ aside
             &:after
                 border-top: 7px solid transparent
                 border-bottom: 7px solid transparent
-                border-left: 7px solid #EA5B54
+                border-left: 7px solid #222
                 border-right: 0
                 content: ' '
                 height: 0
@@ -50,7 +51,7 @@ aside
             &:after
                 border-left: 7px solid transparent
                 border-right: 7px solid transparent
-                border-bottom: 7px solid #EA5B54
+                border-bottom: 7px solid #222
                 border-top: 0
                 content: ' '
                 height: 0
@@ -66,7 +67,7 @@ aside
             &:after
                 border-left: 7px solid transparent
                 border-right: 7px solid transparent
-                border-top: 7px solid #EA5B54
+                border-top: 7px solid #222
                 border-bottom: 0
                 bottom: -7px
                 content: ' '
@@ -76,3 +77,66 @@ aside
                 position: absolute
                 top: auto
                 width: 0
+
+        // default error tooltip
+        &.error
+            background: #EA5B54
+
+            &:after
+                border-right-color: #EA5B54
+
+            &.left
+
+                &:after
+                    border-right-color: transparent
+                    border-left-color: #EA5B54
+
+            &.right
+
+                &:after
+                    border-right-color: transparent
+                    border-right-color: #EA5B54
+
+            &.bottom
+
+                &:after
+                    border-right-color: transparent
+                    border-bottom-color: #EA5B54
+
+            &.top
+
+                &:after
+                    border-right-color: transparent
+                    border-top-color: #EA5B54
+
+        // default warning tooltip
+        &.warning
+            color: #B8860B
+            background: #ffe38e
+
+            &:after
+                border-right-color: #ffe38e
+
+            &.left
+
+                &:after
+                    border-right-color: transparent
+                    border-left-color: #ffe38e
+
+            &.right
+
+                &:after
+                    border-right-color: transparent
+                    border-right-color: #ffe38e
+
+            &.bottom
+
+                &:after
+                    border-right-color: transparent
+                    border-bottom-color: #ffe38e
+
+            &.top
+
+                &:after
+                    border-right-color: transparent
+                    border-top-color: #ffe38e
