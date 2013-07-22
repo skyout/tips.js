@@ -28,6 +28,7 @@ body
         form
             @include border-radius
             background: #f8f8f8
+            margin-bottom: 50px
             padding: 50px
             width: 420px
 
@@ -64,8 +65,22 @@ body
                     border: 1px solid $error
                     box-shadow: 0 0 3px 0 $error
 
+            select
+                color: #555
+                display: block
+                font-size: $font-size - 2
+                margin-bottom: 20px
+                padding: 5px
+                width: 420px
+
+                &.error
+                    color: $error
+
 
         section
+            @include border-radius
+            background: #f8f8f8
+            margin-bottom: 50px
             padding: 50px
             width: 420px
 
