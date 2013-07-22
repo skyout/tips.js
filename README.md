@@ -43,7 +43,7 @@ Specify the optional direction of the tooltip by adding the `data-tooltip-direct
 <input type="email" id="email" data-tooltip="Please enter an email address" data-tooltip-direction="top" />
 ```
 
-Then invoke tips() on the element's you'd like to show tooltips.
+Then invoke tips() on the elements you'd like to show tooltips.
 
 ```
 $("#email").tips();
