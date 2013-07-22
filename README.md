@@ -84,7 +84,7 @@ Please fork and send pull requests, or create an <a href="https://github.com/sla
 License (MIT)
 -------------
 
-jQuery Modal is distributed under the MIT License:
+tips.js is distributed under the MIT License:
 
 ```
 Copyright (c) 2013 Scott Lanning
