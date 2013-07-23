@@ -1,7 +1,7 @@
 tips.js
 =========
 
-tips.js is a simple jQuery tooltip plugin. 
+tips.js is a simple jQuery tooltip plugin.
 
 Demo
 ----
@@ -25,7 +25,7 @@ Include the `tips.css` stylesheet:
 <link href="assets/css/tips.css" media="screen" rel="stylesheet" type="text/css" />
 ```
 
-**Note:** This plugin utilizes the new jQuery on method, and therefore require jQuery 1.7 or newer. 
+**Note:** This plugin utilizes the new jQuery on method, and therefore require jQuery 1.7 or newer.
 
 
 Using tips.js
@@ -43,10 +43,12 @@ Specify the optional direction of the tooltip by adding the `data-tooltip-direct
 <input type="email" id="email" data-tooltip="Please enter an email address" data-tooltip-direction="top" />
 ```
 
-Then invoke tips() on the elements you'd like to show tooltips.
+Then invoke tips() passing the selectors(s) you'd like to show tooltips.
 
 ```
-$("#email").tips();
+$.tips({
+    element: '.error'
+});
 ```
 
 
@@ -59,17 +61,18 @@ Below are the supported options and their default values:
 settings = {
     action: 'focus',        // tooltip display event (click, focus, hover)
     debug: false,           // debug console
+    element: '.error'       // selector to run the tooltip on
     fadeSpeed: 200,         // fade speed
-    preventDefault: false,  // prevent default event when element is clicked on 
+    preventDefault: false,  // prevent default event when element is clicked on
     tailLength: 14,         // width/length of tooltip tail
     tooltipClass: null      // class to add to tooltip
 }
 ```
 
-There are several built in CSS styles for the tooltips. Currently there are styles for error, warning, and informational tooltips. Utilize the `tooltipClass` option to set one of the aforementioned classes.  
-    
+There are several built in CSS styles for the tooltips. Currently there are styles for error, warning, and informational tooltips. Utilize the `tooltipClass` option to set one of the aforementioned classes.
+
 Contributing and Updates
------------
+------------------------
 
 This is an early version of the plugin. I would definitely appreciate any feedback. I'm working on some ideas for the next version:
 
@@ -78,7 +81,7 @@ This is an early version of the plugin. I would definitely appreciate any feedba
 3. Adding more pre-defined CSS tooltip colors and classes
 
 Please fork and send pull requests, or create an <a href="https://github.com/slanningGH/tips.js/issues">issue</a>.
-    
+
 
 
 License (MIT)
@@ -108,4 +111,4 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
-    
+
