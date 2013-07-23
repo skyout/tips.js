@@ -2,9 +2,6 @@
 #   jQuery tooltip plugin (https://github.com/slanningGH/tips.js)
 #   version 0.2
 
-# Reference jQuery
-#$ = jQuery
-
 # Adds plugin object to jQuery
 (($) ->
 
