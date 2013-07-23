@@ -16,7 +16,7 @@ Include <a href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">jQ
 
 ```
 <script src="jquery.min.js" type="text/javascript"></script>
-<script src="tips.js" type="text/javascript"></script>
+<script src="tips.min.js" type="text/javascript"></script>
 ```
 
 Include the `tips.css` stylesheet:
@@ -31,7 +31,7 @@ Include the `tips.css` stylesheet:
 Using tips.js
 -------------
 
-Add a `data-tooltip` attribute with the content of the tooltip.
+All of the files for the plugin can be found in the `build` directory. Add a `data-tooltip` attribute with the content of the tooltip.
 
 ```
 <input type="email" id="email" data-tooltip="Please enter an email address" />
@@ -43,7 +43,7 @@ Specify the optional direction of the tooltip by adding the `data-tooltip-direct
 <input type="email" id="email" data-tooltip="Please enter an email address" data-tooltip-direction="top" />
 ```
 
-Then invoke tips() passing the selectors(s) you'd like to show tooltips.
+Then invoke `$.tips` passing the selectors(s) you'd like to show tooltips.
 
 ```
 $.tips({

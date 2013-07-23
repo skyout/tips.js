@@ -22,7 +22,7 @@
                 # debug console on
                 debug: false
 
-                # define selected element
+                # define selected element with a default of error
                 element: '.error'
 
                 # fade speed

@@ -25,5 +25,6 @@ $ ->
 
         action: 'hover'
         element: '.hover'
+        preventDefault: true
 
     })
