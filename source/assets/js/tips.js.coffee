@@ -3,262 +3,277 @@
 #   version 0.1
 
 # Reference jQuery
-$ = jQuery
+#$ = jQuery
 
 # Adds plugin object to jQuery
-$.fn.extend
+(($) ->
 
-    # Change pluginName to your plugin's name.
-    tips: (options) ->
+    $.extend
 
-        # Default settings
-        settings =
+        # Change pluginName to your plugin's name.
+        tips: (options) ->
 
-            # tooltip display event
-            action: 'focus'
+            # Default settings
+            settings =
 
-            # debug console on
-            debug: true
+                # tooltip display event
+                action: 'focus'
 
-            # fade speed
-            fadeSpeed: 200
+                # debug console on
+                debug: false
 
-            # prevent default when element is clicked on
-            preventDefault: false
+                # define selected element
+                element: '.error'
 
-            # width/length of tooltip tail
-            tailLength: 14
+                # fade speed
+                fadeSpeed: 200
 
-            # class to add to tooltip
-            tooltipClass: null
+                # prevent default when element is clicked on
+                preventDefault: false
 
+                # width/length of tooltip tail
+                tailLength: 14
 
-        # Merge default settings with options
-        settings = $.extend settings, options
+                # class to add to tooltip
+                tooltipClass: null
 
-        # Simple debug logging function
-        log = (msg) ->
 
-            console?.info msg if settings.debug
+            # Merge default settings with options
+            settings = $.extend settings, options
 
-        # Show tooltips
-        showTooltip = (ele) ->
+            # Simple debug logging function
+            log = (msg) ->
 
-            hideTooltip()
+                console?.info msg if settings.debug
 
-            # error text
-            html = ele.attr('data-tooltip')
+            # Show tooltips
+            showTooltip = (ele) ->
 
-            # tooltip direction
-            direction = ele.attr('data-tooltip-direction')
 
-            # append tooltip to body
-            $('<aside>').addClass('tooltip ' + settings.tooltipClass).html(html).appendTo 'body'
+                if ele.attr('data-tooltip')
 
-            # element width and height
-            elementWidthAdjustment = ele.outerWidth()
-            elementHeightAdjustment = ele.outerHeight()
+                    hideTooltip()
 
-            # tooltip width
-            tooltipWidthAdjustment = $('.tooltip:last').outerWidth()
-            tooltipHeightAdjustment = $('.tooltip:last').outerHeight()
+                    # error text
+                    html = ele.attr('data-tooltip')
 
-            # offset position
-            offset = ele.offset()
+                    # tooltip direction
+                    direction = ele.attr('data-tooltip-direction')
 
-            # top position
-            topPosition = offset.top
+                    # append tooltip to body
+                    $('<aside>').addClass('tooltip ' + settings.tooltipClass).html(html).appendTo 'body'
 
-            # instantiate blank variables for logging purposes
-            leftPosition = 0
-            rightPosition = 0
+                    # element width and height
+                    elementWidthAdjustment = ele.outerWidth()
+                    elementHeightAdjustment = ele.outerHeight()
 
-            # assign tooltips based on data-tooltip-direction
-            switch direction
+                    # tooltip width
+                    tooltipWidthAdjustment = $('.tooltip:last').outerWidth()
+                    tooltipHeightAdjustment = $('.tooltip:last').outerHeight()
 
-                # left tooltip
-                when 'left'
+                    # offset position
+                    offset = ele.offset()
 
-                    # right position (14 px added for tail)
-                    rightPosition = offset.left - tooltipWidthAdjustment - settings.tailLength
+                    # top position
+                    topPosition = offset.top
 
-                    # center tooltip tip in element
-                    topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
+                    # instantiate blank variables for logging purposes
+                    leftPosition = 0
+                    rightPosition = 0
 
-                    # fade in tooltip
-                    $('.tooltip:last').css(
+                    # assign tooltips based on data-tooltip-direction
+                    switch direction
 
-                        left: rightPosition
-                        top: topPosition
+                        # left tooltip
+                        when 'left'
 
-                    ).addClass('left').fadeIn settings.fadeSpeed
+                            # right position (14 px added for tail)
+                            rightPosition = offset.left - tooltipWidthAdjustment - settings.tailLength
 
-                # bottom tooltip
-                when 'bottom'
+                            # center tooltip tip in element
+                            topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
 
-                    # add adjustment for element height (14 px added for tail)
-                    topPosition = offset.top + elementHeightAdjustment + settings.tailLength
+                            # fade in tooltip
+                            $('.tooltip:last').css(
 
-                    # left position centered in element
-                    leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
+                                left: rightPosition
+                                top: topPosition
 
+                            ).addClass('left').fadeIn settings.fadeSpeed
 
-                    # fade in tooltip
-                    $('.tooltip:last').css(
+                        # bottom tooltip
+                        when 'bottom'
 
-                        left: leftPosition
-                        top: topPosition
+                            # add adjustment for element height (14 px added for tail)
+                            topPosition = offset.top + elementHeightAdjustment + settings.tailLength
 
-                    ).addClass('bottom').fadeIn settings.fadeSpeed
+                            # left position centered in element
+                            leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
 
-                # bottom tooltip
-                when 'top'
 
-                    # add adjustment for element height (14 px added for tail)
-                    topPosition = offset.top - tooltipHeightAdjustment - settings.tailLength
+                            # fade in tooltip
+                            $('.tooltip:last').css(
 
-                    # left position centered in element
-                    leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
+                                left: leftPosition
+                                top: topPosition
 
+                            ).addClass('bottom').fadeIn settings.fadeSpeed
 
-                    # fade in tooltip
-                    $('.tooltip:last').css(
+                        # bottom tooltip
+                        when 'top'
 
-                        left: leftPosition
-                        top: topPosition
+                            # add adjustment for element height (14 px added for tail)
+                            topPosition = offset.top - tooltipHeightAdjustment - settings.tailLength
 
-                    ).addClass('top').fadeIn settings.fadeSpeed
+                            # left position centered in element
+                            leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
 
-                # otherwise right tooltip
-                else
 
-                    # left position (14 px added for tail)
-                    leftPosition = offset.left + elementWidthAdjustment + settings.tailLength
+                            # fade in tooltip
+                            $('.tooltip:last').css(
 
-                    # center tooltip tip in element
-                    topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
+                                left: leftPosition
+                                top: topPosition
 
+                            ).addClass('top').fadeIn settings.fadeSpeed
 
-                    # fade in tooltip
-                    $('.tooltip:last').css(
+                        # otherwise right tooltip
+                        else
 
-                        left: leftPosition
-                        top: topPosition
+                            # left position (14 px added for tail)
+                            leftPosition = offset.left + elementWidthAdjustment + settings.tailLength
 
-                    ).fadeIn settings.fadeSpeed
+                            # center tooltip tip in element
+                            topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
 
-            # logging
 
-            # log tooltip text
-            log 'Tooltip Content: ' + html
+                            # fade in tooltip
+                            $('.tooltip:last').css(
 
-            # log element width
-            log 'Element Width: ' + elementWidthAdjustment if elementWidthAdjustment
+                                left: leftPosition
+                                top: topPosition
 
-            # log element height
-            log 'Element Height: ' + elementHeightAdjustment if elementHeightAdjustment
+                            ).fadeIn settings.fadeSpeed
 
-            # log top position
-            log 'Element Top Position: ' + topPosition if topPosition
+                    # logging
 
-            # log left position
-            log 'Element Left Position: ' + leftPosition if leftPosition
+                    # log tooltip text
+                    log 'Tooltip Content: ' + html
 
-            # log right position
-            log 'Element Right Position: ' + rightPosition if rightPosition
+                    # log element width
+                    log 'Element Width: ' + elementWidthAdjustment if elementWidthAdjustment
 
-            # tooltip width
-            log 'Tooltip Width: ' + tooltipWidthAdjustment if tooltipWidthAdjustment
+                    # log element height
+                    log 'Element Height: ' + elementHeightAdjustment if elementHeightAdjustment
 
-            # tooltip height
-            log 'Tooltip Height: ' + tooltipHeightAdjustment if tooltipHeightAdjustment
+                    # log top position
+                    log 'Element Top Position: ' + topPosition if topPosition
 
-        # hide tooltips
-        hideTooltip = () ->
+                    # log left position
+                    log 'Element Left Position: ' + leftPosition if leftPosition
 
-            # remove tooltip
-            $('.tooltip').fadeOut settings.fadeSpeed, ->
+                    # log right position
+                    log 'Element Right Position: ' + rightPosition if rightPosition
 
-                $(@).remove()
+                    # tooltip width
+                    log 'Tooltip Width: ' + tooltipWidthAdjustment if tooltipWidthAdjustment
 
+                    # tooltip height
+                    log 'Tooltip Height: ' + tooltipHeightAdjustment if tooltipHeightAdjustment
 
-        # Logic
-        return @each () ->
+            # hide tooltips
+            hideTooltip = () ->
 
-            # switch based on user action type (click, hover, focus)
-            switch settings.action
+                # remove tooltip
+                $('.tooltip').fadeOut settings.fadeSpeed, ->
 
-                # on click
-                when 'click'
+                    $(@).remove()
 
-                    $(@).on(
 
-                        click: (e) ->
+            # Logic
+            return @ () ->
 
-                            # prevent default action
+                ele = settings.element
+
+                # switch based on user action type (click, hover, focus)
+                switch settings.action
+
+                    # on click
+                    when 'click'
+
+                        $(document).on('click', ele, (e) ->
+
+                            #prevent default action
                             e.preventDefault() if settings.preventDefault
 
-                            # focus on click element
-                            $(@).attr('tabindex',0).focus()
+                            # focus on click element if it isnt an input or select box
+                            if not $(@).is(':input') and not $(@).attr('tabindex')
+
+                                $(@).attr('tabindex',0).focus()
 
                             # show tooltip
                             showTooltip($(@))
 
-                        focusout: () ->
+                        )
+
+                        $(document).on('blur', ele, (e) ->
 
                             # when element loses focus (click away, etc) remove tabindex
-                            $(@).removeAttr('tabindex')
+                            if not $(@).is(':input') and not $(@).attr('tabindex')
 
-                            # hide tooltip
+                                $(@).removeAttr('tabindex')
+
+                            # when element loses focus (click away, etc) hide tooltip
                             hideTooltip()
 
-                    )
+                        )
 
-                # on hover
-                when 'hover'
+                    # on hover
+                    when 'hover'
 
-                    $(@).on(
 
-                        click: (e) ->
+                        $(document).on('click', ele, (e) ->
 
-                            # prevent default action
+                            #prevent default action
                             e.preventDefault() if settings.preventDefault
 
-                        mouseover: () ->
+                        )
 
-                            # show tooltip
+                        $(document).on('mouseenter', ele, (e) ->
+
+                            # when element loses focus (click away, etc) hide tooltip
                             showTooltip($(@))
 
-                        mouseout: () ->
+                        )
 
-                            # hide tooltip
+                        $(document).on('mouseout', ele, (e) ->
+
+                            # when element loses focus (click away, etc) hide tooltip
                             hideTooltip()
 
-                    )
+                        )
 
-                # on focus
-                else
+                    # on focus
+                    else
 
-                    $(@).on(
+                        $(document).on('click', ele, (e) ->
 
-                        click: (e) ->
-
-                            # prevent default action
+                            #prevent default action
                             e.preventDefault() if settings.preventDefault
 
-                        focusin: () ->
+                        )
 
-                            # show tooltip
+                        $(document).on('focus', ele, (e) ->
+
+                            # when element loses focus (click away, etc) hide tooltip
                             showTooltip($(@))
 
-                        focusout: () ->
+                        )
 
-                            # hide tooltip
+                        $(document).on('blur, change', ele, (e) ->
+
+                            # when element loses focus (click away, etc) hide tooltip
                             hideTooltip()
 
-                        change: () ->
-
-                            # hide tooltip
-                            hideTooltip()
-
-                    )
+                        )
+)(jQuery)

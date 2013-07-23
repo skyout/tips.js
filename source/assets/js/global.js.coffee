@@ -3,24 +3,27 @@
 
 $ ->
 
-    $('.clicktips').tips({
 
-        action: 'click'
-        preventDefault: true
-        tooltipClass: 'warning'
-
-    })
-
-    $('.error').tips({
+    $.tips({
 
         action: 'focus'
+        element: '.error'
         tooltipClass: 'error'
 
     })
 
-    $('.hover').tips({
+    $.tips({
+
+        action: 'click'
+        element: '.clicktips'
+        tooltipClass: 'warning'
+        preventDefault: true
+
+    })
+
+    $.tips({
 
         action: 'hover'
-        preventDefault: true
+        element: '.hover'
 
     })
