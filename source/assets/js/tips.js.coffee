@@ -267,9 +267,16 @@
 
                         )
 
-                        $(document).on('blur, change', ele, (e) ->
+                        $(document).on('blur', ele, (e) ->
 
                             # when element loses focus (click away, etc) hide tooltip
+                            hideTooltip()
+
+                        )
+
+                        $(document).on('change', ele, (e) ->
+
+                            # when element changes(select, etc) hide tooltip
                             hideTooltip()
 
                         )

@@ -99,6 +99,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   middleman (~> 3.0.14)
