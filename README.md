@@ -16,7 +16,7 @@ Include <a href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">jQ
 
 ```
 <script src="js/libs/jquery.js" type="text/javascript"></script>
-<script src="js/libs/tips.js" type="text/javascript"></script>
+<script src="js/tips.js" type="text/javascript"></script>
 ```
 
 Include the `tips.css` stylesheet:
