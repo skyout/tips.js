@@ -1,0 +1,143 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none; }
+
+ins {
+  text-decoration: none; }
+
+del {
+  text-decoration: line-through; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  color: #333333;
+  border-top: 3px solid #333333;
+  background: white;
+  font: normal normal normal 18px/1.5 Arial, Helvetica, Sans-serif; }
+  body article {
+    margin: 50px auto 0 auto;
+    width: 960px; }
+    body article > h1 {
+      color: black;
+      font-size: 64px;
+      margin-bottom: 50px; }
+    body article p {
+      margin-bottom: 40px;
+      width: 420px; }
+      body article p strong {
+        font-weight: bold; }
+    body article form {
+      -webkit-border-radius: 3px 3px 3px 3px;
+      -moz-border-radius: 3px 3px 3px 3px;
+      -ms-border-radius: 3px 3px 3px 3px;
+      -o-border-radius: 3px 3px 3px 3px;
+      border-radius: 3px 3px 3px 3px;
+      background: #f8f8f8;
+      margin-bottom: 50px;
+      padding: 50px;
+      width: 420px; }
+      body article form h1 {
+        color: #555555;
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 40px; }
+      body article form label {
+        color: #e0331c;
+        display: block;
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 7px;
+        text-transform: uppercase; }
+      body article form input[type="text"], body article form input[type="email"], body article form input[type="tel"] {
+        -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.08);
+        -moz-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.08);
+        -ms-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.08);
+        -o-box-shaodw: 1px 1px 1px 0 rgba(0, 0, 0, 0.08);
+        box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.08);
+        border: 1px solid #cccccc;
+        color: #555555;
+        display: block;
+        font-size: 22px;
+        margin-bottom: 20px;
+        padding: 7px 10px;
+        width: 398px; }
+      body article form input.error {
+        border: 1px solid #e0331c;
+        box-shadow: 0 0 3px 0 #e0331c; }
+      body article form select {
+        color: #555555;
+        display: block;
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 5px;
+        width: 420px; }
+        body article form select.error {
+          color: #e0331c; }
+    body article section {
+      -webkit-border-radius: 3px 3px 3px 3px;
+      -moz-border-radius: 3px 3px 3px 3px;
+      -ms-border-radius: 3px 3px 3px 3px;
+      -o-border-radius: 3px 3px 3px 3px;
+      border-radius: 3px 3px 3px 3px;
+      background: #f8f8f8;
+      margin-bottom: 50px;
+      padding: 50px;
+      width: 420px; }
+      body article section h1 {
+        color: #555555;
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 40px; }
+      body article section p a {
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -ms-border-radius: 100%;
+        -o-border-radius: 100%;
+        border-radius: 100%;
+        background: #dddddd;
+        display: inline-block;
+        color: #666666;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        padding: 5px 8px;
+        text-decoration: none; }
+        body article section p a:hover {
+          background: #c4c4c4; }

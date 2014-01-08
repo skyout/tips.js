@@ -1,8 +1,5 @@
-#= require '../js/libs/jquery-1.9.1.min.js'
-#= require 'tips.js'
-
+# global js file
 $ ->
-
 
     $.tips({
 

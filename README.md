@@ -22,7 +22,7 @@ Include <a href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">jQ
 Include the `tips.css` stylesheet:
 
 ```
-<link href="assets/css/tips.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/tips.css" media="screen" rel="stylesheet" type="text/css" />
 ```
 
 **Note:** This plugin utilizes the new jQuery on method, and therefore require jQuery 1.7 or newer. Also tips.js uses the HTML5 element of `aside` for tooltips. It is recommended to include <a href="http://code.google.com/p/html5shiv/">html5shiv</a> if working with browsers that do not natively support HTML5.
