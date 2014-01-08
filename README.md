@@ -15,8 +15,8 @@ Installation
 Include <a href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">jQuery</a> and the `tips.min.js` scripts:
 
 ```
-<script src="jquery.min.js" type="text/javascript"></script>
-<script src="tips.min.js" type="text/javascript"></script>
+<script src="js/libs/jquery.js" type="text/javascript"></script>
+<script src="js/libs/tips.js" type="text/javascript"></script>
 ```
 
 Include the `tips.css` stylesheet:
