@@ -22,10 +22,11 @@
                 <h1>Tooltip errors on focus</h1>
                 <!-- Right tooltip -->
                 <label for="first-name">First Name</label>
-                <input type="text" id="first-name" data-tooltip="Please enter a first name" class="error" />
+                <!-- <input type="text" id="first-name" data-tooltip="Please enter a first name" class="error" /> -->
+                <input type="text" id="first-name" data-tooltip="Here are a list of choices: {`choice one `choice two `choice three} Here are some other choices: {`one `two `three}" class="error" />
                 <!-- Left tooltip -->
                 <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" data-tooltip="Please enter a last name" data-tooltip-direction="left" class="error" />
+                <input type="text" id="last-name" data-tooltip="Please enter a last name or go to (http://google.com)[google]" data-tooltip-direction="left" class="error" />
                 <!-- Bottom tooltip -->
                 <label for="email">Email</label>
                 <input type="email" id="email" data-tooltip="Please enter a valid email address" data-tooltip-direction="bottom" class="error"  />

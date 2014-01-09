@@ -46,9 +46,106 @@
 
                 console?.info msg if settings.debug
 
+
+            replaceCharacters = (txt) ->
+
+                ###
+                    ^ = header
+                    * = strong
+                    ~ = em
+                    | = break
+                    (http://link.url)[text] = link
+                    {} = list
+                        ` = list item
+                ###
+
+                # split the tooltip text into an array so we can easily replace parts
+                content = txt.split("")
+                console.log content
+
+                # array to hold location of symbols to later be replaced
+                headerArray = []
+                strongArray = []
+                emArray = []
+                liArray = []
+
+                # for each letter in the content
+                for key, val of content
+
+                    # if ^ then push to headerArray
+                    if val is '^' then headerArray.push(key)
+
+                    # if * then push to strongArray
+                    if val is '*' then strongArray.push(key)
+
+                    # if ~ then push to emArray
+                    if val is '~' then emArray.push(key)
+
+                    # if ^ then push to headerArray
+                    if val is '`' then liArray.push(key)
+
+                    # if | then replace with <br />
+                    if val is '|' then content[key] = '<br />'
+
+                    # if { then replace with ul
+                    if val is '{' then content[key] = '<ul>'
+
+                    # if { then replace with ul
+                    if val is '}' then content[key] = '</ul>'
+
+                # while header array has 2 or more values
+                while headerArray.length > 1
+
+                    # replace first with opening h1
+                    content[headerArray[0]] = '<h1>'
+
+                    # replace second with closing h1
+                    content[headerArray[1]] = '</h1>'
+
+                    # remove those values from the array
+                    headerArray.splice(0,2)
+
+                # while strong array has 2 or more values
+                while strongArray.length > 1
+
+                    # replace first with opening strong
+                    content[strongArray[0]] = '<strong>'
+
+                    # replace second with closing strong
+                    content[strongArray[1]] = '</strong>'
+
+                    # remove those values from the array
+                    strongArray.splice(0,2)
+
+                # while em array has 2 or more values
+                while emArray.length > 1
+
+                    # replace first with opening em
+                    content[emArray[0]] = '<em>'
+
+                    # replace second with closing em
+                    content[emArray[1]] = '</em>'
+
+                    # remove those values from the array
+                    emArray.splice(0,2)
+
+                # while li array has values
+                while liArray.length
+
+                    # replace tick with li
+                    content[liArray[0]] = '<li>'
+
+                    # remove those values from the array
+                    liArray.splice(0,1)
+
+                # rejoin array into a string
+                content = content.join("")
+
+                # return string
+                return content
+
             # Show tooltips
             showTooltip = (ele) ->
-
 
                 if ele.attr('data-tooltip')
 
@@ -56,7 +153,7 @@
                     hideTooltip()
 
                     # error text
-                    html = ele.attr('data-tooltip')
+                    html = replaceCharacters(ele.attr('data-tooltip'))
 
                     # tooltip direction
                     direction = ele.attr('data-tooltip-direction')

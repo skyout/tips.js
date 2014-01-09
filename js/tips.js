@@ -3,7 +3,7 @@
   (function($) {
     return $.extend({
       tips: function(options) {
-        var hideTooltip, log, settings, showTooltip;
+        var hideTooltip, log, replaceCharacters, settings, showTooltip;
         settings = {
           action: 'focus',
           debug: false,
@@ -20,11 +20,75 @@
             return typeof console !== "undefined" && console !== null ? console.info(msg) : void 0;
           }
         };
+        replaceCharacters = function(txt) {
+          /*
+              ^ = header
+              * = strong
+              ~ = em
+              | = break
+              (http://link.url)[text] = link
+              {} = list
+                  ` = list item
+          */
+
+          var content, emArray, headerArray, key, liArray, strongArray, val;
+          content = txt.split("");
+          console.log(content);
+          headerArray = [];
+          strongArray = [];
+          emArray = [];
+          liArray = [];
+          for (key in content) {
+            val = content[key];
+            if (val === '^') {
+              headerArray.push(key);
+            }
+            if (val === '*') {
+              strongArray.push(key);
+            }
+            if (val === '~') {
+              emArray.push(key);
+            }
+            if (val === '`') {
+              liArray.push(key);
+            }
+            if (val === '|') {
+              content[key] = '<br />';
+            }
+            if (val === '{') {
+              content[key] = '<ul>';
+            }
+            if (val === '}') {
+              content[key] = '</ul>';
+            }
+          }
+          while (headerArray.length > 1) {
+            content[headerArray[0]] = '<h1>';
+            content[headerArray[1]] = '</h1>';
+            headerArray.splice(0, 2);
+          }
+          while (strongArray.length > 1) {
+            content[strongArray[0]] = '<strong>';
+            content[strongArray[1]] = '</strong>';
+            strongArray.splice(0, 2);
+          }
+          while (emArray.length > 1) {
+            content[emArray[0]] = '<em>';
+            content[emArray[1]] = '</em>';
+            emArray.splice(0, 2);
+          }
+          while (liArray.length) {
+            content[liArray[0]] = '<li>';
+            liArray.splice(0, 1);
+          }
+          content = content.join("");
+          return content;
+        };
         showTooltip = function(ele) {
           var direction, elementHeightAdjustment, elementWidthAdjustment, html, leftPosition, offset, rightPosition, tooltipElement, tooltipHeightAdjustment, tooltipWidthAdjustment, topPosition;
           if (ele.attr('data-tooltip')) {
             hideTooltip();
-            html = ele.attr('data-tooltip');
+            html = replaceCharacters(ele.attr('data-tooltip'));
             direction = ele.attr('data-tooltip-direction');
             if (settings.html5) {
               tooltipElement = '<aside>';

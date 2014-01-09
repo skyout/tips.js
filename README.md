@@ -37,6 +37,24 @@ All of the files for the plugin can be found in the `build` directory. Add a `da
 <input type="email" id="email" data-tooltip="Please enter an email address" />
 ```
 
+Text can be formatted within the data-tooltip attribute via special characters.
+
+```
+^heading^       :   <h1>Heading</h1>
+*bold*          :   <strong>bold</strong>
+~italic~        :   <em>italic</em>
+Line | Break    :   Line <br /> Break
+
+{`item one `item two `item three} :
+<ul>
+    <li>item one</li>
+    <li>item two</li>
+    <li>item three</li>
+</ul>
+```
+
+
+
 Specify the optional direction of the tooltip by adding the `data-tooltip-direction` attribute with the direction you'd like. The default is right, however acceptable values are top, bottom, left, and right.
 
 ```
