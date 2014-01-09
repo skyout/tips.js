@@ -12,7 +12,7 @@ A demo of the plugin in action can be found <a href="http://scott-lanning.com/ti
 Installation
 ------------
 
-Include <a href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">jQuery</a> and the `tips.min.js` scripts:
+Include <a href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">jQuery</a> and the `tips.js` scripts:
 
 ```
 <script src="js/libs/jquery.js" type="text/javascript"></script>
