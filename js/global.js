@@ -15,7 +15,8 @@
     return $.tips({
       action: 'hover',
       element: '.hover',
-      preventDefault: true
+      preventDefault: true,
+      html5: false
     });
   });
 

@@ -32,7 +32,10 @@
                 tailLength: 14
 
                 # class to add to tooltip
-                tooltipClass: null
+                tooltipClass: ''
+
+                # enable html5 element
+                html5: true
 
 
             # Merge default settings with options
@@ -49,6 +52,7 @@
 
                 if ele.attr('data-tooltip')
 
+                    # remove existing tooltips
                     hideTooltip()
 
                     # error text
@@ -57,8 +61,11 @@
                     # tooltip direction
                     direction = ele.attr('data-tooltip-direction')
 
+                    # if html5 is set to true then use an aside otherwise use a div
+                    if settings.html5 then tooltipElement = '<aside>' else tooltipElement = '<div>'
+
                     # append tooltip to body
-                    $('<aside>').addClass('tooltip ' + settings.tooltipClass).html(html).appendTo 'body'
+                    $(tooltipElement).addClass('tooltip ' + settings.tooltipClass).html(html).appendTo 'body'
 
                     # element width and height
                     elementWidthAdjustment = ele.outerWidth()

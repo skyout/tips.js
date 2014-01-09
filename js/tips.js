@@ -11,7 +11,8 @@
           fadeSpeed: 200,
           preventDefault: false,
           tailLength: 14,
-          tooltipClass: null
+          tooltipClass: '',
+          html5: true
         };
         settings = $.extend(settings, options);
         log = function(msg) {
@@ -20,12 +21,17 @@
           }
         };
         showTooltip = function(ele) {
-          var direction, elementHeightAdjustment, elementWidthAdjustment, html, leftPosition, offset, rightPosition, tooltipHeightAdjustment, tooltipWidthAdjustment, topPosition;
+          var direction, elementHeightAdjustment, elementWidthAdjustment, html, leftPosition, offset, rightPosition, tooltipElement, tooltipHeightAdjustment, tooltipWidthAdjustment, topPosition;
           if (ele.attr('data-tooltip')) {
             hideTooltip();
             html = ele.attr('data-tooltip');
             direction = ele.attr('data-tooltip-direction');
-            $('<aside>').addClass('tooltip ' + settings.tooltipClass).html(html).appendTo('body');
+            if (settings.html5) {
+              tooltipElement = '<aside>';
+            } else {
+              tooltipElement = '<div>';
+            }
+            $(tooltipElement).addClass('tooltip ' + settings.tooltipClass).html(html).appendTo('body');
             elementWidthAdjustment = ele.outerWidth();
             elementHeightAdjustment = ele.outerHeight();
             tooltipWidthAdjustment = $('.tooltip:last').outerWidth();

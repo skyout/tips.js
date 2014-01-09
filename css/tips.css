@@ -1,4 +1,4 @@
-aside.tooltip {
+aside.tooltip, div.tooltip {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
   -ms-border-radius: 3px 3px 3px 3px;
@@ -13,7 +13,7 @@ aside.tooltip {
   padding: 9px 13px;
   position: absolute;
   z-index: 100; }
-  aside.tooltip:after {
+  aside.tooltip:after, div.tooltip:after {
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
     border-right: 7px solid #222222;
@@ -25,7 +25,7 @@ aside.tooltip {
     position: absolute;
     top: 50%;
     width: 0; }
-  aside.tooltip.left:after {
+  aside.tooltip.left:after, div.tooltip.left:after {
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
     border-left: 7px solid #222222;
@@ -37,7 +37,7 @@ aside.tooltip {
     right: -7px;
     top: 50%;
     width: 0; }
-  aside.tooltip.bottom:after {
+  aside.tooltip.bottom:after, div.tooltip.bottom:after {
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-bottom: 7px solid #222222;
@@ -49,7 +49,7 @@ aside.tooltip {
     position: absolute;
     top: -7px;
     width: 0; }
-  aside.tooltip.top:after {
+  aside.tooltip.top:after, div.tooltip.top:after {
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-top: 7px solid #222222;
@@ -62,36 +62,36 @@ aside.tooltip {
     position: absolute;
     top: auto;
     width: 0; }
-  aside.tooltip.error {
+  aside.tooltip.error, div.tooltip.error {
     background: #ea5b54; }
-    aside.tooltip.error:after {
+    aside.tooltip.error:after, div.tooltip.error:after {
       border-right-color: #ea5b54; }
-    aside.tooltip.error.left:after {
+    aside.tooltip.error.left:after, div.tooltip.error.left:after {
       border-right-color: transparent;
       border-left-color: #ea5b54; }
-    aside.tooltip.error.right:after {
+    aside.tooltip.error.right:after, div.tooltip.error.right:after {
       border-right-color: transparent;
       border-right-color: #ea5b54; }
-    aside.tooltip.error.bottom:after {
+    aside.tooltip.error.bottom:after, div.tooltip.error.bottom:after {
       border-right-color: transparent;
       border-bottom-color: #ea5b54; }
-    aside.tooltip.error.top:after {
+    aside.tooltip.error.top:after, div.tooltip.error.top:after {
       border-right-color: transparent;
       border-top-color: #ea5b54; }
-  aside.tooltip.warning {
+  aside.tooltip.warning, div.tooltip.warning {
     color: darkgoldenrod;
     background: #ffe38e; }
-    aside.tooltip.warning:after {
+    aside.tooltip.warning:after, div.tooltip.warning:after {
       border-right-color: #ffe38e; }
-    aside.tooltip.warning.left:after {
+    aside.tooltip.warning.left:after, div.tooltip.warning.left:after {
       border-right-color: transparent;
       border-left-color: #ffe38e; }
-    aside.tooltip.warning.right:after {
+    aside.tooltip.warning.right:after, div.tooltip.warning.right:after {
       border-right-color: transparent;
       border-right-color: #ffe38e; }
-    aside.tooltip.warning.bottom:after {
+    aside.tooltip.warning.bottom:after, div.tooltip.warning.bottom:after {
       border-right-color: transparent;
       border-bottom-color: #ffe38e; }
-    aside.tooltip.warning.top:after {
+    aside.tooltip.warning.top:after, div.tooltip.warning.top:after {
       border-right-color: transparent;
       border-top-color: #ffe38e; }
