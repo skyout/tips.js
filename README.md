@@ -92,14 +92,13 @@ There are several built in CSS styles for the tooltips. Currently there are styl
 Contributing and Updates
 ------------------------
 
-This is an early version of the plugin. I would definitely appreciate any feedback. I'm working on some ideas for the next version:
+I would definitely appreciate any feedback. I'm working on some ideas for the next version:
 
-1. Detecting edge of screen and repositioning tooltips
-2. Adding options for tooltip location in relation to the element
+1. Adding formatting for links in tooltips
+2. Detecting edge of screen and repositioning tooltips
 3. Adding more pre-defined CSS tooltip colors and classes
 
 Please fork and send pull requests, or create an <a href="https://github.com/slanningGH/tips.js/issues">issue</a>.
-
 
 
 License (MIT)
