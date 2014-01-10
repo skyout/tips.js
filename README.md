@@ -81,7 +81,7 @@ settings = {
     element: '.error'       // selector to run the tooltip on
     fadeSpeed: 200,         // fade speed
     preventDefault: false,  // prevent default event when element is clicked on
-    tailLength: 14,         // width/length of tooltip tail
+    tailLength: 14,         // width/length of the tooltip tail for positioning
     tooltipClass: '',       // class to add to tooltip
     html5: true             // uses aside for tooltip instead of div for html5 supported browsers
 }

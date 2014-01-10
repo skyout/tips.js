@@ -28,7 +28,7 @@
                 # prevent default when element is clicked on
                 preventDefault: false
 
-                # width/length of tooltip tail
+                # width/length of the tooltip tail for positioning
                 tailLength: 14
 
                 # class to add to tooltip
@@ -49,19 +49,8 @@
 
             replaceCharacters = (txt) ->
 
-                ###
-                    ^ = header
-                    * = strong
-                    ~ = em
-                    | = break
-                    (http://link.url)[text] = link
-                    {} = list
-                        ` = list item
-                ###
-
                 # split the tooltip text into an array so we can easily replace parts
                 content = txt.split("")
-                console.log content
 
                 # array to hold location of symbols to later be replaced
                 headerArray = []

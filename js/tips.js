@@ -21,16 +21,6 @@
           }
         };
         replaceCharacters = function(txt) {
-          /*
-              ^ = header
-              * = strong
-              ~ = em
-              | = break
-              (http://link.url)[text] = link
-              {} = list
-                  ` = list item
-          */
-
           var content, emArray, headerArray, key, liArray, strongArray, val;
           content = txt.split("");
           console.log(content);
