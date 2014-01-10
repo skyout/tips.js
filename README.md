@@ -80,10 +80,10 @@ settings = {
     debug: false,           // debug console
     element: '.error'       // selector to run the tooltip on
     fadeSpeed: 200,         // fade speed
+    html5: true,             // uses aside for tooltip instead of div for html5 supported browsers
     preventDefault: false,  // prevent default event when element is clicked on
     tailLength: 14,         // width/length of the tooltip tail for positioning
-    tooltipClass: '',       // class to add to tooltip
-    html5: true             // uses aside for tooltip instead of div for html5 supported browsers
+    tooltipClass: ''       // class to add to tooltip
 }
 ```
 

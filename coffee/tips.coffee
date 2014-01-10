@@ -25,6 +25,9 @@
                 # fade speed
                 fadeSpeed: 200
 
+                # enable html5 element
+                html5: true
+
                 # prevent default when element is clicked on
                 preventDefault: false
 
@@ -33,10 +36,6 @@
 
                 # class to add to tooltip
                 tooltipClass: ''
-
-                # enable html5 element
-                html5: true
-
 
             # Merge default settings with options
             settings = $.extend settings, options
@@ -49,14 +48,14 @@
 
             replaceCharacters = (txt) ->
 
-                # split the tooltip text into an array so we can easily replace parts
-                content = txt.split("")
-
                 # array to hold location of symbols to later be replaced
                 headerArray = []
                 strongArray = []
                 emArray = []
                 liArray = []
+
+                # split the tooltip text into an array so we can easily replace parts
+                content = txt.split("")
 
                 # for each letter in the content
                 for key, val of content
@@ -127,11 +126,8 @@
                     # remove those values from the array
                     liArray.splice(0,1)
 
-                # rejoin array into a string
-                content = content.join("")
-
-                # return string
-                return content
+                # rejoin array into a string and return
+                return content.join("")
 
             # Show tooltips
             showTooltip = (ele) ->

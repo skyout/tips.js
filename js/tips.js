@@ -9,10 +9,10 @@
           debug: false,
           element: '.error',
           fadeSpeed: 200,
+          html5: true,
           preventDefault: false,
           tailLength: 14,
-          tooltipClass: '',
-          html5: true
+          tooltipClass: ''
         };
         settings = $.extend(settings, options);
         log = function(msg) {
@@ -22,12 +22,11 @@
         };
         replaceCharacters = function(txt) {
           var content, emArray, headerArray, key, liArray, strongArray, val;
-          content = txt.split("");
-          console.log(content);
           headerArray = [];
           strongArray = [];
           emArray = [];
           liArray = [];
+          content = txt.split("");
           for (key in content) {
             val = content[key];
             if (val === '^') {
@@ -71,8 +70,7 @@
             content[liArray[0]] = '<li>';
             liArray.splice(0, 1);
           }
-          content = content.join("");
-          return content;
+          return content.join("");
         };
         showTooltip = function(ele) {
           var direction, elementHeightAdjustment, elementWidthAdjustment, html, leftPosition, offset, rightPosition, tooltipElement, tooltipHeightAdjustment, tooltipWidthAdjustment, topPosition;
