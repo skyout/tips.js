@@ -54,7 +54,7 @@ Line | Break    :   Line <br /> Break
 
 
 
-Specify the optional direction of the tooltip by adding the `data-tooltip-direction` attribute with the direction you'd like. The default is right, however acceptable values are top, bottom, left, and right.
+Specify the optional direction of the tooltip by adding the `data-tooltip-direction` attribute with the direction you'd like. The default is `right`, however acceptable values are `top`, `bottom`, `left`, and `right`.
 
 ```
 <input type="email" id="email" data-tooltip="Please enter an email address" data-tooltip-direction="top" />
