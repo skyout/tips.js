@@ -55,22 +55,22 @@
                 liArray = []
 
                 # split the tooltip text into an array so we can easily replace parts
-                content = txt.split("")
+                content = txt.split ""
 
                 # for each letter in the content
                 for key, val of content
 
                     # if ^ then push to headerArray
-                    if val is '^' then headerArray.push(key)
+                    if val is '^' then headerArray.push key
 
                     # if * then push to strongArray
-                    if val is '*' then strongArray.push(key)
+                    if val is '*' then strongArray.push key
 
                     # if ~ then push to emArray
-                    if val is '~' then emArray.push(key)
+                    if val is '~' then emArray.push key
 
                     # if ^ then push to headerArray
-                    if val is '`' then liArray.push(key)
+                    if val is '`' then liArray.push key
 
                     # if | then replace with <br />
                     if val is '|' then content[key] = '<br />'
@@ -124,10 +124,10 @@
                     content[liArray[0]] = '<li>'
 
                     # remove those values from the array
-                    liArray.splice(0,1)
+                    liArray.splice 0,1
 
                 # rejoin array into a string and return
-                return content.join("")
+                return content.join ""
 
             # Show tooltips
             showTooltip = (ele) ->
@@ -138,10 +138,10 @@
                     hideTooltip()
 
                     # error text
-                    html = replaceCharacters(ele.attr('data-tooltip'))
+                    html = replaceCharacters ele.attr 'data-tooltip'
 
                     # tooltip direction
-                    direction = ele.attr('data-tooltip-direction')
+                    direction = ele.attr 'data-tooltip-direction'
 
                     # if html5 is set to true then use an aside otherwise use a div
                     if settings.html5 then tooltipElement = '<aside>' else tooltipElement = '<div>'
@@ -232,7 +232,6 @@
                             # center tooltip tip in element
                             topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
 
-
                             # fade in tooltip
                             $('.tooltip:last').css(
 
@@ -279,6 +278,7 @@
             # Logic
             return @ () ->
 
+                # element
                 ele = settings.element
 
                 # switch based on user action type (click, hover, focus)
@@ -287,86 +287,85 @@
                     # on click
                     when 'click'
 
-                        $(document).on('click', ele, (e) ->
+                        $(document).on 'click', ele, (e) ->
 
                             #prevent default action
                             e.preventDefault() if settings.preventDefault
 
                             # focus on click element if it isnt an input or select box
-                            if not $(@).is(':input') and not $(@).attr('tabindex')
+                            if not $(@).is(':input') and not $(@).attr 'tabindex'
 
                                 $(@).attr('tabindex',0).focus()
 
                             # show tooltip
                             showTooltip($(@))
 
-                        )
 
-                        $(document).on('blur', ele, (e) ->
+
+                        $(document).on 'blur', ele, (e) ->
 
                             # when element loses focus (click away, etc) remove tabindex
-                            if not $(@).is(':input') and not $(@).attr('tabindex')
+                            if not $(@).is(':input') and not $(@).attr 'tabindex'
 
-                                $(@).removeAttr('tabindex')
+                                $(@).removeAttr 'tabindex'
 
                             # when element loses focus (click away, etc) hide tooltip
                             hideTooltip()
 
-                        )
+
 
                     # on hover
                     when 'hover'
 
 
-                        $(document).on('click', ele, (e) ->
+                        $(document).on'click', ele, (e) ->
 
                             #prevent default action
                             e.preventDefault() if settings.preventDefault
 
-                        )
 
-                        $(document).on('mouseenter', ele, (e) ->
+
+                        $(document).on 'mouseenter', ele, (e) ->
 
                             # when element loses focus (click away, etc) hide tooltip
                             showTooltip($(@))
 
-                        )
 
-                        $(document).on('mouseout', ele, (e) ->
+
+                        $(document).on 'mouseout', ele, (e) ->
 
                             # when element loses focus (click away, etc) hide tooltip
                             hideTooltip()
 
-                        )
+
 
                     # on focus
                     else
 
-                        $(document).on('click', ele, (e) ->
+                        $(document).on 'click', ele, (e) ->
 
                             #prevent default action
                             e.preventDefault() if settings.preventDefault
 
-                        )
 
-                        $(document).on('focus', ele, (e) ->
+
+                        $(document).on 'focus', ele, (e) ->
 
                             # when element loses focus (click away, etc) hide tooltip
                             showTooltip($(@))
 
-                        )
 
-                        $(document).on('blur', ele, (e) ->
+
+                        $(document).on 'blur', ele, (e) ->
 
                             # when element loses focus (click away, etc) hide tooltip
                             hideTooltip()
 
-                        )
 
-                        $(document).on('change', ele, (e) ->
+
+                        $(document).on 'change', ele, (e) ->
 
                             # when element changes(select, etc) hide tooltip
                             hideTooltip()
 
-                        )
 )(jQuery)
