@@ -3,12 +3,6 @@ tips.js
 
 tips.js is a simple jQuery tooltip plugin.
 
-Demo
-----
-
-A demo of the plugin in action can be found <a href="http://scott-lanning.com/tips">here</a>.
-
-
 Installation
 ------------
 
