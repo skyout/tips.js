@@ -7,7 +7,7 @@ $ = require 'jquery'
 module.exports =
 
     # Adds plugin object to jQuery
-    (($) ->
+    ($) ->
 
         $.extend
 
@@ -280,7 +280,7 @@ module.exports =
 
 
                 # Logic
-                return @ ->
+                return @ () ->
 
                     # element
                     ele = settings.element
@@ -322,7 +322,7 @@ module.exports =
                         when 'hover'
 
 
-                            $(document).on'click', ele, (e) ->
+                            $(document).on 'click', ele, (e) ->
 
                                 #prevent default action
                                 e.preventDefault() if settings.preventDefault
@@ -371,5 +371,3 @@ module.exports =
 
                                 # when element changes(select, etc) hide tooltip
                                 hideTooltip()
-
-    )(jQuery)
