@@ -1,37 +1,29 @@
 {
-  "name": "tips.js",
-  "version": "1.1.0",
-  "description": "jquery plugin for dynamic tooltips",
-  "main": "index.js",
-  "dependencies": {
-    "jquery": ">=1.9.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:slanningGH/tips.js.git"
-  },
-  "homepage": "https://github.com/slanningGH/tips.js",
-  "keywords": [
-    "jquery",
-    "tooltips",
-    "js",
-    "plugin"
-  ],
-  "contributors": [
+    "name": "tips.js",
+    "title": "tips.js",
+    "version": "1.0.0",
+    "description": "jQuery plugin for writing dynamic tooltips",
+    "homepage": "https://github.com/slanningGH/tips.js",
+    "author":
     {
-      "name": "Scott Lanning",
-      "email": "skyout@gmail.com",
-      "url": "http://scott-lanning.com"
-    }
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/slanningGH/tips.js/issues/"
-  },
-  "maintainers": [
-    {
-      "name": "slanninggh",
-      "email": "skyout@gmail.com"
+        "name": "Scott Lanning",
+        "email": "skyout@gmail.com"
     },
-  ]
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:slanningGH/tips.js.git"
+    },
+    "bugs": {
+        "url": "https://github.com/slanningGH/tips.js/issues/"
+    },
+    "keywords": [
+        "tooltips",
+        "jquery",
+        "tips",
+        "plugin"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "jquery": ">=1.9.0"
+    }
 }
