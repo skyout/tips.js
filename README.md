@@ -6,7 +6,7 @@ tips.js is a simple jQuery tooltip plugin.
 Installation
 ------------
 
-Include <a href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">jQuery</a> and the `tips.js` scripts:
+Include `jQuery` and the `tips.js` scripts:
 
 ```
 <script src="js/libs/jquery.js" type="text/javascript"></script>
