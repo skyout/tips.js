@@ -1,0 +1,160 @@
+@charset "UTF-8"
+@import "_variables"
+@import "_mixins"
+
+aside, div
+
+    // tooltip style
+    &.tooltip
+        border-radius()
+        background: #222
+        color: #fff
+        display: none
+        font-size: $font-size - 2
+        margin: 0
+        max-width: 250px
+        padding: 9px 13px
+        position: absolute
+        z-index: 100
+
+        h1
+            font-size: $font-size
+            font-weight: bold
+
+        strong
+            font-weight: bold
+
+        em
+            font-style: italic
+
+        ul
+            list-style: disc inside none
+
+            li
+                padding: 0 5px
+
+        // arrow
+        &:after
+            border-top: 7px solid transparent
+            border-bottom: 7px solid transparent
+            border-right: 7px solid #222
+            content: ' '
+            display: block
+            height: 0
+            left: -7px
+            margin-top: -7px
+            position: absolute
+            top: 50%
+            width: 0
+
+        // tooltip from the left with right arrow
+        &.left
+
+            &:after
+                border-top: 7px solid transparent
+                border-bottom: 7px solid transparent
+                border-left: 7px solid #222
+                border-right: 0
+                content: ' '
+                height: 0
+                left: auto
+                position: absolute
+                right: -7px
+                top: 50%
+                width: 0
+
+        // tooltip from the bottom with top arrow
+        &.bottom
+
+            &:after
+                border-left: 7px solid transparent
+                border-right: 7px solid transparent
+                border-bottom: 7px solid #222
+                border-top: 0
+                content: ' '
+                height: 0
+                left: 50%
+                margin: 0 0 0 -7px
+                position: absolute
+                top: -7px
+                width: 0
+
+        // tooltip from the bottom with top arrow
+        &.top
+
+            &:after
+                border-left: 7px solid transparent
+                border-right: 7px solid transparent
+                border-top: 7px solid #222
+                border-bottom: 0
+                bottom: -7px
+                content: ' '
+                height: 0
+                left: 50%
+                margin: 0 0 0 -7px
+                position: absolute
+                top: auto
+                width: 0
+
+        // default error tooltip
+        &.error
+            background: #EA5B54
+
+            &:after
+                border-right-color: #EA5B54
+
+            &.left
+
+                &:after
+                    border-right-color: transparent
+                    border-left-color: #EA5B54
+
+            &.right
+
+                &:after
+                    border-right-color: transparent
+                    border-right-color: #EA5B54
+
+            &.bottom
+
+                &:after
+                    border-right-color: transparent
+                    border-bottom-color: #EA5B54
+
+            &.top
+
+                &:after
+                    border-right-color: transparent
+                    border-top-color: #EA5B54
+
+        // default warning tooltip
+        &.warning
+            color: #B8860B
+            background: #ffe38e
+
+            &:after
+                border-right-color: #ffe38e
+
+            &.left
+
+                &:after
+                    border-right-color: transparent
+                    border-left-color: #ffe38e
+
+            &.right
+
+                &:after
+                    border-right-color: transparent
+                    border-right-color: #ffe38e
+
+            &.bottom
+
+                &:after
+                    border-right-color: transparent
+                    border-bottom-color: #ffe38e
+
+            &.top
+
+                &:after
+                    border-right-color: transparent
+                    border-top-color: #ffe38e

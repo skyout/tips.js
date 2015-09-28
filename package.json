@@ -21,10 +21,12 @@
         "jquery": ">=1.9.0"
     },
     "devDependencies": {
-        "coffee-script": "^1.10.0"
+        "coffee-script": "^1.10.0",
+        "stylus": "^0.52.4"
     },
    "scripts": {
-        "compile": "coffee --bare --output dist/ --compile src/ "
+        "compile-coffee": "coffee --bare --output dist/ --compile src/",
+        "compile-css": "stylus stylus/tips.styl --out css/"
     },
     "keywords": [
         "tooltips",

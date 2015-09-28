@@ -1,0 +1,43 @@
+//border radius
+border-radius($radius = 3px 3px 3px 3px)
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
+    -ms-border-radius: $radius
+    -o-border-radius: $radius
+    border-radius: $radius
+
+//box shadow for plans
+box-shadow($params = 0 0 3px 1px rgba(0,0,0,0.04))
+    -webkit-box-shadow: $params
+    -moz-box-shadow: $params
+    -ms-box-shadow: $params
+    -o-box-shaodw: $params
+    box-shadow: $params
+
+//cta
+cta($color)
+    @include border-radius
+    background: $color
+    color: #fff
+    display: block
+    font-size: 22px
+    padding: 20px
+    text-align: center
+
+    &:hover
+        background: lighten($color, 5%)
+        text-decoration: none
+
+//clear
+clearAfter()
+
+    &:after
+        clear: both
+        content: '.'
+        display: block
+        height: 0
+        visibility: hidden
+
+// text shadow
+text-shadow($text-shadow = 1px 1px 1px rgba(0,0,0,0.45))
+    text-shadow: $text-shadow
