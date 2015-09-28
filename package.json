@@ -1,60 +1,37 @@
 {
   "name": "tips.js",
-  "description": "jQuery Tooltip Plugin",
-  "version": "2.0.0",
-  "private": true,
-  "author": "slanninggh",
+  "version": "1.1.0",
+  "description": "jquery plugin for dynamic tooltips",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": ">=1.9.0"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/slanninggh/tips.js"
+    "url": "git@github.com:slanningGH/tips.js.git"
   },
-  "engines": {
-    "node": "^4.0.0",
-    "npm": "^2.14.3"
+  "homepage": "https://github.com/slanningGH/tips.js",
+  "keywords": [
+    "jquery",
+    "tooltips",
+    "js",
+    "plugin"
+  ],
+  "contributors": [
+    {
+      "name": "Scott Lanning",
+      "email": "skyout@gmail.com",
+      "url": "http://scott-lanning.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slanningGH/tips.js/issues/"
   },
-  "scripts": {
-    "start": "coffee app.coffee",
-    "test": "gulp test"
-  },
-  "dependencies": {
-    "coffee-script": "^1.9.3",
-    "config": "^1.15.0",
-    "hapi": "10.0.0",
-    "jade": "^1.11.0",
-    "jquery": "^2.1.4"
-  },
-  "devDependencies": {
-    "browserify": "^11.0.1",
-    "code": "^1.5.0",
-    "coffeeify": "^1.0.1",
-    "gulp": "^3.9.0",
-    "gulp-bump": "^0.3",
-    "gulp-changed": "^1.3.0",
-    "gulp-coffee": "^2.3",
-    "gulp-coffeelint": "^0.5",
-    "gulp-concat": "^2.6",
-    "gulp-istanbul": "^0.10",
-    "gulp-jasmine": "^2.0",
-    "gulp-lab": "^1.0.5",
-    "gulp-newer": "^0.5",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-shell": "^0.4.3",
-    "gulp-stylus": "^2.0",
-    "gulp-uglify": "^1.4",
-    "karma": "^0.13.9",
-    "karma-chrome-launcher": "^0.2",
-    "karma-coffee-preprocessor": "^0.3.0",
-    "karma-coverage": "^0.5.1",
-    "karma-jasmine": "^0.3",
-    "karma-phantomjs-launcher": "^0.2.1",
-    "lab": "^5.16.0",
-    "node-dev": "^2.7.1",
-    "phantomjs": "^1.9.18",
-    "rimraf": "^2.4.3",
-    "run-sequence": "^1.1.2",
-    "should": "^7.1",
-    "supertest": "^1.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
-  }
+  "maintainers": [
+    {
+      "name": "slanninggh",
+      "email": "skyout@gmail.com"
+    },
+  ]
 }
