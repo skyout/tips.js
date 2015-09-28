@@ -1,0 +1,69 @@
+{
+  "name": "gulp-bump",
+  "description": "Bump npm versions with Gulp (gulpjs.com)",
+  "version": "0.3.1",
+  "homepage": "http://github.com/stevelacy/gulp-bump",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stevelacy/gulp-bump.git"
+  },
+  "author": {
+    "name": "Steve Lacy",
+    "email": "me@slacy.me",
+    "url": "http://slacy.me"
+  },
+  "main": "./index.js",
+  "dependencies": {
+    "dot-object": "^0.6.0",
+    "gulp-util": "^3.0.4",
+    "semver": "^4.3.1",
+    "through2": "^0.5.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "engines": {
+    "node": ">= 0.9.0"
+  },
+  "keywords": [
+    "gulp",
+    "bump",
+    "semver",
+    "gulpplugin",
+    "version",
+    "versioning",
+    "gulp-version",
+    "gulp-plugin"
+  ],
+  "license": "MIT",
+  "gitHead": "dad1d960e9b1f6b480c909a23ba7d118c436ce6f",
+  "bugs": {
+    "url": "https://github.com/stevelacy/gulp-bump/issues"
+  },
+  "_id": "gulp-bump@0.3.1",
+  "_shasum": "8ac67f228915ab148779f16d3d375e5514a11c9a",
+  "_from": "gulp-bump@>=0.3.0 <0.4.0",
+  "_npmVersion": "2.9.0",
+  "_nodeVersion": "2.0.1",
+  "_npmUser": {
+    "name": "stevelacy",
+    "email": "me@slacy.me"
+  },
+  "maintainers": [
+    {
+      "name": "stevelacy",
+      "email": "me@slacy.me"
+    }
+  ],
+  "dist": {
+    "shasum": "8ac67f228915ab148779f16d3d375e5514a11c9a",
+    "tarball": "http://registry.npmjs.org/gulp-bump/-/gulp-bump-0.3.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/gulp-bump/-/gulp-bump-0.3.1.tgz",
+  "readme": "ERROR: No README data found!"
+}

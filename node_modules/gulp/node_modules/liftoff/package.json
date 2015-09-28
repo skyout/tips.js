@@ -1,0 +1,44 @@
+{
+  "name": "liftoff",
+  "description": "Launch your command line tool with ease.",
+  "version": "2.2.0",
+  "homepage": "https://github.com/tkellen/node-liftoff",
+  "author": {
+    "name": "Tyler Kellen",
+    "url": "http://goingslowly.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tkellen/node-liftoff.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tkellen/node-liftoff/issues"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 0.8"
+  },
+  "scripts": {
+    "test": "jshint lib index.js && jscs lib index.js && mocha -t 5000 -b -R spec test/index"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "coffee-script": "^1.9.2",
+    "istanbul": "^0.3.14",
+    "jscs": "^1.13.1",
+    "jshint": "^2.7.0",
+    "mocha": "^2.1.0",
+    "sinon": "~1.12.2"
+  },
+  "keywords": [
+    "command line"
+  ],
+  "dependencies": {
+    "extend": "^2.0.1",
+    "findup-sync": "^0.3.0",
+    "flagged-respawn": "^0.3.1",
+    "rechoir": "^0.6.0",
+    "resolve": "^1.1.6"
+  }
+}

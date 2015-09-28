@@ -276,7 +276,7 @@
 
 
             # Logic
-            return @ () ->
+            return @ ->
 
                 # element
                 ele = settings.element
