@@ -37,20 +37,18 @@ If using normal browser include:
 <script src="js/tips.js" type="text/javascript"></script>
 ```
 
-**Note:** This plugin utilizes the new jQuery "on" method, and therefore requires jQuery 1.7 or newer.
+**Note:** This plugin utilizes the jQuery "on" method, and therefore requires jQuery 1.7 or newer.
 
 Styling
 -------
 
-tips.js includes several preset style or you can write your own.
-
-To use the preset styles add the `tips.css` stylesheet in the head of your view:
+To use the pre-built CSS add the `tips.css` stylesheet in the head of your view:
 
 ```
 <link href="css/tips.css" media="screen" rel="stylesheet" type="text/css" />
 ```
 
-Using tips.js
+Using tip.js
 -------------
 
 All of the files for the plugin can be found in the `build` directory. Add a `data-tooltip` attribute with the content of the tooltip.
