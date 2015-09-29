@@ -1,248 +1,242 @@
-'use strict'
+# adds plugin object to jQuery
+$.extend
 
-# require jquery
-$ = require 'jquery'
+    # Change pluginName to your plugin's name.
+    tips: (options) ->
 
-# export for use
-module.exports =
+        # Default settings
+        settings =
 
-    # Adds plugin object to jQuery
-    $.extend
+            # tooltip display event
+            action: 'focus'
 
-        # Change pluginName to your plugin's name.
-        tips: (options) ->
+            # debug console on
+            debug: false
 
-            # Default settings
-            settings =
+            # define selected element with a default of error
+            element: '.error'
 
-                # tooltip display event
-                action: 'focus'
+            # fade speed
+            fadeSpeed: 200
 
-                # debug console on
-                debug: false
+            # enable html5 element
+            html5: true
 
-                # define selected element with a default of error
-                element: '.error'
+            # prevent default when element is clicked on
+            preventDefault: false
 
-                # fade speed
-                fadeSpeed: 200
+            # width/length of the tooltip tail for positioning
+            tailLength: 14
 
-                # enable html5 element
-                html5: true
+            # class to add to tooltip
+            tooltipClass: ''
 
-                # prevent default when element is clicked on
-                preventDefault: false
+        # Merge default settings with options
+        settings = $.extend settings, options
 
-                # width/length of the tooltip tail for positioning
-                tailLength: 14
+        # Simple debug logging function
+        log = (msg) ->
 
-                # class to add to tooltip
-                tooltipClass: ''
+            console?.info msg if settings.debug
 
-            # Merge default settings with options
-            settings = $.extend settings, options
 
-            # Simple debug logging function
-            log = (msg) ->
+        replaceCharacters = (txt) ->
 
-                console?.info msg if settings.debug
+            # array to hold location of symbols to later be replaced
+            headerArray = []
+            strongArray = []
+            emArray = []
+            liArray = []
 
+            # split the tooltip text into an array so we can easily replace parts
+            content = txt.split ""
 
-            replaceCharacters = (txt) ->
+            # for each letter in the content
+            for key, val of content
 
-                # array to hold location of symbols to later be replaced
-                headerArray = []
-                strongArray = []
-                emArray = []
-                liArray = []
+                # if ^ then push to headerArray
+                if val is '^' then headerArray.push key
 
-                # split the tooltip text into an array so we can easily replace parts
-                content = txt.split ""
+                # if * then push to strongArray
+                if val is '*' then strongArray.push key
 
-                # for each letter in the content
-                for key, val of content
+                # if ~ then push to emArray
+                if val is '~' then emArray.push key
 
-                    # if ^ then push to headerArray
-                    if val is '^' then headerArray.push key
+                # if ^ then push to headerArray
+                if val is '`' then liArray.push key
 
-                    # if * then push to strongArray
-                    if val is '*' then strongArray.push key
+                # if | then replace with <br />
+                if val is '|' then content[key] = '<br />'
 
-                    # if ~ then push to emArray
-                    if val is '~' then emArray.push key
+                # if { then replace with ul
+                if val is '{' then content[key] = '<ul>'
 
-                    # if ^ then push to headerArray
-                    if val is '`' then liArray.push key
+                # if { then replace with ul
+                if val is '}' then content[key] = '</ul>'
 
-                    # if | then replace with <br />
-                    if val is '|' then content[key] = '<br />'
+            # while header array has 2 or more values
+            while headerArray.length > 1
 
-                    # if { then replace with ul
-                    if val is '{' then content[key] = '<ul>'
+                # replace first with opening h1
+                content[headerArray[0]] = '<h1>'
 
-                    # if { then replace with ul
-                    if val is '}' then content[key] = '</ul>'
+                # replace second with closing h1
+                content[headerArray[1]] = '</h1>'
 
-                # while header array has 2 or more values
-                while headerArray.length > 1
+                # remove those values from the array
+                headerArray.splice(0,2)
 
-                    # replace first with opening h1
-                    content[headerArray[0]] = '<h1>'
+            # while strong array has 2 or more values
+            while strongArray.length > 1
 
-                    # replace second with closing h1
-                    content[headerArray[1]] = '</h1>'
+                # replace first with opening strong
+                content[strongArray[0]] = '<strong>'
 
-                    # remove those values from the array
-                    headerArray.splice(0,2)
+                # replace second with closing strong
+                content[strongArray[1]] = '</strong>'
 
-                # while strong array has 2 or more values
-                while strongArray.length > 1
+                # remove those values from the array
+                strongArray.splice(0,2)
 
-                    # replace first with opening strong
-                    content[strongArray[0]] = '<strong>'
+            # while em array has 2 or more values
+            while emArray.length > 1
 
-                    # replace second with closing strong
-                    content[strongArray[1]] = '</strong>'
+                # replace first with opening em
+                content[emArray[0]] = '<em>'
 
-                    # remove those values from the array
-                    strongArray.splice(0,2)
+                # replace second with closing em
+                content[emArray[1]] = '</em>'
 
-                # while em array has 2 or more values
-                while emArray.length > 1
+                # remove those values from the array
+                emArray.splice(0,2)
 
-                    # replace first with opening em
-                    content[emArray[0]] = '<em>'
+            # while li array has values
+            while liArray.length
 
-                    # replace second with closing em
-                    content[emArray[1]] = '</em>'
+                # replace tick with li
+                content[liArray[0]] = '<li>'
 
-                    # remove those values from the array
-                    emArray.splice(0,2)
+                # remove those values from the array
+                liArray.splice 0,1
 
-                # while li array has values
-                while liArray.length
+            # rejoin array into a string and return
+            return content.join ""
 
-                    # replace tick with li
-                    content[liArray[0]] = '<li>'
+        # Show tooltips
+        showTooltip = (ele) ->
 
-                    # remove those values from the array
-                    liArray.splice 0,1
+            # if tooltip element
+            if ele.attr('data-tooltip')
 
-                # rejoin array into a string and return
-                return content.join ""
+                # remove existing tooltips
+                hideTooltip()
 
-            # Show tooltips
-            showTooltip = (ele) ->
+                # error text
+                html = replaceCharacters ele.attr 'data-tooltip'
 
-                if ele.attr('data-tooltip')
+                # tooltip direction
+                direction = ele.attr 'data-tooltip-direction'
 
-                    # remove existing tooltips
-                    hideTooltip()
+                # if html5 is set to true then use an aside otherwise use a div
+                if settings.html5 then tooltipElement = '<aside>' else tooltipElement = '<div>'
 
-                    # error text
-                    html = replaceCharacters ele.attr 'data-tooltip'
+                # append tooltip to body
+                $(tooltipElement).addClass('tooltip ' + settings.tooltipClass).html(html).appendTo 'body'
 
-                    # tooltip direction
-                    direction = ele.attr 'data-tooltip-direction'
+                # element width and height
+                elementWidthAdjustment = ele.outerWidth()
+                elementHeightAdjustment = ele.outerHeight()
 
-                    # if html5 is set to true then use an aside otherwise use a div
-                    if settings.html5 then tooltipElement = '<aside>' else tooltipElement = '<div>'
+                # tooltip width
+                tooltipWidthAdjustment = $('.tooltip:last').outerWidth()
+                tooltipHeightAdjustment = $('.tooltip:last').outerHeight()
 
-                    # append tooltip to body
-                    $(tooltipElement).addClass('tooltip ' + settings.tooltipClass).html(html).appendTo 'body'
+                # offset position
+                offset = ele.offset()
 
-                    # element width and height
-                    elementWidthAdjustment = ele.outerWidth()
-                    elementHeightAdjustment = ele.outerHeight()
+                # top position
+                topPosition = offset.top
 
-                    # tooltip width
-                    tooltipWidthAdjustment = $('.tooltip:last').outerWidth()
-                    tooltipHeightAdjustment = $('.tooltip:last').outerHeight()
+                # instantiate blank variables for logging purposes
+                leftPosition = 0
+                rightPosition = 0
 
-                    # offset position
-                    offset = ele.offset()
+                # assign tooltips based on data-tooltip-direction
+                switch direction
 
-                    # top position
-                    topPosition = offset.top
+                    # left tooltip
+                    when 'left'
 
-                    # instantiate blank variables for logging purposes
-                    leftPosition = 0
-                    rightPosition = 0
+                        # right position (14 px added for tail)
+                        rightPosition = offset.left - tooltipWidthAdjustment - settings.tailLength
 
-                    # assign tooltips based on data-tooltip-direction
-                    switch direction
+                        # center tooltip tip in element
+                        topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
 
-                        # left tooltip
-                        when 'left'
+                        # fade in tooltip
+                        $('.tooltip:last').css(
 
-                            # right position (14 px added for tail)
-                            rightPosition = offset.left - tooltipWidthAdjustment - settings.tailLength
+                            left: rightPosition
+                            top: topPosition
 
-                            # center tooltip tip in element
-                            topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
+                        ).addClass('left').fadeIn settings.fadeSpeed
 
-                            # fade in tooltip
-                            $('.tooltip:last').css(
+                    # bottom tooltip
+                    when 'bottom'
 
-                                left: rightPosition
-                                top: topPosition
+                        # add adjustment for element height (14 px added for tail)
+                        topPosition = offset.top + elementHeightAdjustment + settings.tailLength
 
-                            ).addClass('left').fadeIn settings.fadeSpeed
+                        # left position centered in element
+                        leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
 
-                        # bottom tooltip
-                        when 'bottom'
 
-                            # add adjustment for element height (14 px added for tail)
-                            topPosition = offset.top + elementHeightAdjustment + settings.tailLength
+                        # fade in tooltip
+                        $('.tooltip:last').css(
 
-                            # left position centered in element
-                            leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
+                            left: leftPosition
+                            top: topPosition
 
+                        ).addClass('bottom').fadeIn settings.fadeSpeed
 
-                            # fade in tooltip
-                            $('.tooltip:last').css(
+                    # bottom tooltip
+                    when 'top'
 
-                                left: leftPosition
-                                top: topPosition
+                        # add adjustment for element height (14 px added for tail)
+                        topPosition = offset.top - tooltipHeightAdjustment - settings.tailLength
 
-                            ).addClass('bottom').fadeIn settings.fadeSpeed
+                        # left position centered in element
+                        leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
 
-                        # bottom tooltip
-                        when 'top'
 
-                            # add adjustment for element height (14 px added for tail)
-                            topPosition = offset.top - tooltipHeightAdjustment - settings.tailLength
+                        # fade in tooltip
+                        $('.tooltip:last').css(
 
-                            # left position centered in element
-                            leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
+                            left: leftPosition
+                            top: topPosition
 
+                        ).addClass('top').fadeIn settings.fadeSpeed
 
-                            # fade in tooltip
-                            $('.tooltip:last').css(
+                    # otherwise right tooltip
+                    else
 
-                                left: leftPosition
-                                top: topPosition
+                        # left position (14 px added for tail)
+                        leftPosition = offset.left + elementWidthAdjustment + settings.tailLength
 
-                            ).addClass('top').fadeIn settings.fadeSpeed
+                        # center tooltip tip in element
+                        topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
 
-                        # otherwise right tooltip
-                        else
+                        # fade in tooltip
+                        $('.tooltip:last').css(
 
-                            # left position (14 px added for tail)
-                            leftPosition = offset.left + elementWidthAdjustment + settings.tailLength
+                            left: leftPosition
+                            top: topPosition
 
-                            # center tooltip tip in element
-                            topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
+                        ).fadeIn settings.fadeSpeed
 
-                            # fade in tooltip
-                            $('.tooltip:last').css(
-
-                                left: leftPosition
-                                top: topPosition
-
-                            ).fadeIn settings.fadeSpeed
-
-                    # logging
+                # log if debug is enabled
+                if settings.debug
 
                     # log tooltip text
                     log 'Tooltip Content: ' + html
@@ -268,100 +262,86 @@ module.exports =
                     # tooltip height
                     log 'Tooltip Height: ' + tooltipHeightAdjustment if tooltipHeightAdjustment
 
-            # hide tooltips
-            hideTooltip = () ->
 
-                # remove tooltip
-                $('.tooltip').fadeOut settings.fadeSpeed, ->
+        # hide tooltips
+        hideTooltip = () ->
 
-                    $(@).remove()
+            # remove tooltip
+            $('.tooltip').fadeOut settings.fadeSpeed, ->
 
-
-            # Logic
-            return @ ->
-
-                # element
-                ele = settings.element
-
-                # switch based on user action type (click, hover, focus)
-                switch settings.action
-
-                    # on click
-                    when 'click'
-
-                        $(document).on 'click', ele, (e) ->
-
-                            #prevent default action
-                            e.preventDefault() if settings.preventDefault
-
-                            # focus on click element if it isnt an input or select box
-                            if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).attr('tabindex',0).focus()
-
-                            # show tooltip
-                            showTooltip($(@))
+                $(@).remove()
 
 
+        # actions
+        return @ ->
 
-                        $(document).on 'blur', ele, (e) ->
+            # element
+            ele = settings.element
 
-                            # when element loses focus (click away, etc) remove tabindex
-                            if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).removeAttr 'tabindex'
+            # switch based on user action type (click, hover, focus)
+            switch settings.action
 
-                            # when element loses focus (click away, etc) hide tooltip
-                            hideTooltip()
+                # on click
+                when 'click'
 
+                    $(document).on 'click', ele, (e) ->
 
+                        #prevent default action
+                        e.preventDefault() if settings.preventDefault
 
-                    # on hover
-                    when 'hover'
+                        # focus on click element if it isnt an input or select box
+                        if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).attr('tabindex',0).focus()
 
+                        # show tooltip
+                        showTooltip($(@))
 
-                        $(document).on 'click', ele, (e) ->
+                    $(document).on 'blur', ele, (e) ->
 
-                            #prevent default action
-                            e.preventDefault() if settings.preventDefault
+                        # when element loses focus (click away, etc) remove tabindex
+                        if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).removeAttr 'tabindex'
 
-
-
-                        $(document).on 'mouseenter', ele, (e) ->
-
-                            # when element loses focus (click away, etc) hide tooltip
-                            showTooltip $(@)
-
-
-
-                        $(document).on 'mouseout', ele, (e) ->
-
-                            # when element loses focus (click away, etc) hide tooltip
-                            hideTooltip()
+                        # when element loses focus (click away, etc) hide tooltip
+                        hideTooltip()
 
 
+                # on hover
+                when 'hover'
 
-                    # on focus
-                    else
+                    $(document).on 'click', ele, (e) ->
 
-                        $(document).on 'click', ele, (e) ->
+                        #prevent default action
+                        e.preventDefault() if settings.preventDefault
 
-                            #prevent default action
-                            e.preventDefault() if settings.preventDefault
+                    $(document).on 'mouseenter', ele, (e) ->
 
+                        # when element loses focus (click away, etc) hide tooltip
+                        showTooltip $(@)
 
+                    $(document).on 'mouseout', ele, (e) ->
 
-                        $(document).on 'focus', ele, (e) ->
-
-                            # when element loses focus (click away, etc) hide tooltip
-                            showTooltip $(@)
-
-
-
-                        $(document).on 'blur', ele, (e) ->
-
-                            # when element loses focus (click away, etc) hide tooltip
-                            hideTooltip()
+                        # when element loses focus (click away, etc) hide tooltip
+                        hideTooltip()
 
 
+                # on focus
+                else
 
-                        $(document).on 'change', ele, (e) ->
+                    $(document).on 'click', ele, (e) ->
 
-                            # when element changes(select, etc) hide tooltip
-                            hideTooltip()
+                        #prevent default action
+                        e.preventDefault() if settings.preventDefault
+
+                    $(document).on 'focus', ele, (e) ->
+
+                        # when element loses focus (click away, etc) hide tooltip
+                        showTooltip $(@)
+
+                    $(document).on 'blur', ele, (e) ->
+
+                        # when element loses focus (click away, etc) hide tooltip
+                        hideTooltip()
+
+                    $(document).on 'change', ele, (e) ->
+
+                        # when element changes(select, etc) hide tooltip
+                        hideTooltip()
