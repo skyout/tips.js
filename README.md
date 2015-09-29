@@ -18,8 +18,6 @@ Otherwise download grab the js/css from and include it in your project.
 Getting Started
 ---------------
 
-tips.js supports CommonJS, AMD, and normal browser includes.
-
 If using CommonJS:
 
 ```
