@@ -1,0 +1,32 @@
+{
+  "name": "tips.js",
+  "version": "1.0.8",
+  "homepage": "https://github.com/slanningGH/tips.js",
+  "authors": [
+    "Scott Lanning <skyout@gmail.com>"
+  ],
+  "description": "jQuery plugin for writing dynamic tooltips",
+  "main": "dist/index.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "tooltips",
+    "jquery",
+    "tips",
+    "plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
