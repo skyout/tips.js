@@ -6,22 +6,55 @@ tips.js is a simple jQuery tooltip plugin.
 Installation
 ------------
 
-Include `jQuery` and the `tips.js` scripts:
+Install via npm:
 
 ```
-<script src="js/libs/jquery.js" type="text/javascript"></script>
+npm install tips.js
+```
+
+Install via bower:
+
+```
+bower install tips.js
+```
+
+Or download the [zip].
+
+
+Getting Started
+---------------
+
+If using CommonJS:
+
+```
+var tips = require('tips.js');
+```
+
+If using AMD:
+
+```
+require(['tips.js'] , function () {}
+```
+
+If using normal browser include:
+
+```
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascipt"></script>
 <script src="js/tips.js" type="text/javascript"></script>
 ```
 
-Include the `tips.css` stylesheet:
+**Note:** This plugin utilizes the jQuery "on" method, and therefore requires jQuery 1.7 or newer.
+
+Styling
+-------
+
+To use the pre-built CSS add the `tips.css` stylesheet in the head of your view:
 
 ```
 <link href="css/tips.css" media="screen" rel="stylesheet" type="text/css" />
 ```
 
-**Note:** This plugin utilizes the new jQuery "on" method, and therefore requires jQuery 1.7 or newer.
-
-Using tips.js
+Using tip.js
 -------------
 
 All of the files for the plugin can be found in the `build` directory. Add a `data-tooltip` attribute with the content of the tooltip.
@@ -45,8 +78,6 @@ Line | Break    :   Line <br /> Break
     <li>item three</li>
 </ul>
 ```
-
-
 
 Specify the optional direction of the tooltip by adding the `data-tooltip-direction` attribute with the direction you'd like. The default is `right`, however acceptable values are `top`, `bottom`, `left`, and `right`.
 
@@ -122,3 +153,5 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+
+[zip]:https://github.com/slanningGH/tips.js/archive/npm.zip
