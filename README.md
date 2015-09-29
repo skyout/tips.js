@@ -6,10 +6,34 @@ tips.js is a simple jQuery tooltip plugin.
 Installation
 ------------
 
-Include `jQuery` and the `tips.js` scripts:
+If you have the node package manager (npm):
 
 ```
-<script src="js/libs/jquery.js" type="text/javascript"></script>
+npm install tips.js
+```
+
+Getting Started
+---------------
+
+tips.js supports CommonJS, AMD, and normal browser includes.
+
+If using CommonJS:
+
+```
+var tips = require('tips.js');
+```
+
+If using AMD:
+
+```
+define(['tips.js']), function () {}
+```
+
+
+If using normal browser include:
+
+```
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascipt"></script>
 <script src="js/tips.js" type="text/javascript"></script>
 ```
 
