@@ -12,6 +12,9 @@ If you have the node package manager (npm):
 npm install tips.js
 ```
 
+Otherwise download grab the js/css from and include it in your project.
+
+
 Getting Started
 ---------------
 
@@ -26,9 +29,8 @@ var tips = require('tips.js');
 If using AMD:
 
 ```
-define(['tips.js']), function () {}
+require(['jquery', tips.js'] , function () {}
 ```
-
 
 If using normal browser include:
 
@@ -37,13 +39,18 @@ If using normal browser include:
 <script src="js/tips.js" type="text/javascript"></script>
 ```
 
-Include the `tips.css` stylesheet:
+**Note:** This plugin utilizes the new jQuery "on" method, and therefore requires jQuery 1.7 or newer.
+
+Styling
+-------
+
+tips.js includes several preset style or you can write your own.
+
+To use the preset styles add the `tips.css` stylesheet in the head of your view:
 
 ```
 <link href="css/tips.css" media="screen" rel="stylesheet" type="text/css" />
 ```
-
-**Note:** This plugin utilizes the new jQuery "on" method, and therefore requires jQuery 1.7 or newer.
 
 Using tips.js
 -------------
@@ -69,8 +76,6 @@ Line | Break    :   Line <br /> Break
     <li>item three</li>
 </ul>
 ```
-
-
 
 Specify the optional direction of the tooltip by adding the `data-tooltip-direction` attribute with the direction you'd like. The default is `right`, however acceptable values are `top`, `bottom`, `left`, and `right`.
 
