@@ -6,13 +6,19 @@ tips.js is a simple jQuery tooltip plugin.
 Installation
 ------------
 
-If you have the node package manager (npm):
+Install via npm:
 
 ```
 npm install tips.js
 ```
 
-Other Download the [zip]
+Install via bower:
+
+```
+bower install tips.js
+```
+
+Or download the [zip].
 
 
 Getting Started
