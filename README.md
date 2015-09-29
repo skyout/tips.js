@@ -12,7 +12,7 @@ If you have the node package manager (npm):
 npm install tips.js
 ```
 
-Otherwise download grab the js/css from and include it in your project.
+Other Download the [zip]
 
 
 Getting Started
@@ -147,3 +147,5 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+
+[zip]:https://github.com/slanningGH/tips.js/archive/npm.zip
