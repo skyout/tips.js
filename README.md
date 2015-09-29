@@ -101,14 +101,14 @@ Below are the supported options and their default values:
 
 ```
 settings = {
-    action: 'focus',        // tooltip display event (click, focus, hover)
-    debug: false,           // debug console
-    element: '.error'       // selector to run the tooltip on
-    fadeSpeed: 200,         // fade speed
+    action: 'focus',         // tooltip display event (click, focus, hover)
+    debug: false,            // debug console
+    element: '.error'        // selector to run the tooltip on
+    fadeSpeed: 200,          // fade speed
     html5: true,             // uses aside for tooltip instead of div for html5 supported browsers
-    preventDefault: false,  // prevent default event when element is clicked on
-    tailLength: 14,         // width/length of the tooltip tail for positioning
-    tooltipClass: ''       // class to add to tooltip
+    preventDefault: false,   // prevent default event when element is clicked on
+    tailLength: 14,          // width/length of the tooltip tail for positioning
+    tooltipClass: ''         // class to add to tooltip
 }
 ```
 
