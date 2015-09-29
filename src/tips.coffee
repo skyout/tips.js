@@ -278,7 +278,7 @@ module.exports =
 
 
             # Logic
-            return @ () ->
+            return @ ->
 
                 # element
                 ele = settings.element
@@ -295,9 +295,7 @@ module.exports =
                             e.preventDefault() if settings.preventDefault
 
                             # focus on click element if it isnt an input or select box
-                            if not $(@).is(':input') and not $(@).attr 'tabindex'
-
-                                $(@).attr('tabindex',0).focus()
+                            if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).attr('tabindex',0).focus()
 
                             # show tooltip
                             showTooltip($(@))
@@ -307,9 +305,7 @@ module.exports =
                         $(document).on 'blur', ele, (e) ->
 
                             # when element loses focus (click away, etc) remove tabindex
-                            if not $(@).is(':input') and not $(@).attr 'tabindex'
-
-                                $(@).removeAttr 'tabindex'
+                            if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).removeAttr 'tabindex'
 
                             # when element loses focus (click away, etc) hide tooltip
                             hideTooltip()
@@ -330,7 +326,7 @@ module.exports =
                         $(document).on 'mouseenter', ele, (e) ->
 
                             # when element loses focus (click away, etc) hide tooltip
-                            showTooltip($(@))
+                            showTooltip $(@)
 
 
 
@@ -354,7 +350,7 @@ module.exports =
                         $(document).on 'focus', ele, (e) ->
 
                             # when element loses focus (click away, etc) hide tooltip
-                            showTooltip($(@))
+                            showTooltip $(@)
 
 
 
