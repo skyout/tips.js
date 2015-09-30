@@ -33,7 +33,7 @@ var tips = require('tips.js');
 If using AMD:
 
 ```
-require(['tips.js'] , function () {}
+require(['tips.js'], function () {});
 ```
 
 If using normal browser include:
