@@ -124,10 +124,10 @@ settings = {
     fadeSpeed: 200,             // fade speed
     html5: true,                // uses aside for tooltip instead of div for html5 supported browsers
     preventDefault: false,      // prevent default event when element is clicked on
-    tailLength: 14,             // width/length of the tooltip tail for positioning
-    tooltipClass: '',           // class to add to tooltip
     removeAll: false,           // removes all tooltip bindings
     removeSpecific: false       // removes specific tooltip binding (requires element and action)
+    tailLength: 14,             // width/length of the tooltip tail for positioning
+    tooltipClass: '',           // class to add to tooltip
 }
 ```
 
