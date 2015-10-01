@@ -107,8 +107,6 @@ All tooltips can be removed by using the `removeAll` option. This will remove al
 
 ```
 $.tips({
-    action: 'hover'
-    element: '.info'
     removeAll: true
 });
 ```
