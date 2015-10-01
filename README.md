@@ -93,7 +93,7 @@ $.tips({
 });
 ```
 
-Specific tooltip bindings can be removed using the `removeSpecific` option. This required both an element and an action to be specified, otherwise the default `.error` and `focus` will be applied.
+Specific tooltip bindings can be removed using the `removeSpecific` option. This required both an element and an action to be specified, otherwise the default `.error` class and `focus` action will be removed.
 
 ```
 $.tips({
@@ -103,7 +103,7 @@ $.tips({
 });
 ```
 
-All tooltips can be removed by using the `removeAll` option. This will remove all tooltip bindings.
+All tooltips binding can be removed by using the `removeAll` option.
 
 ```
 $.tips({
