@@ -44,11 +44,19 @@
                 # prevent default when element is clicked on
                 preventDefault: false
 
+                # remove all tooltip bindings
+                removeAll: false
+
+                # remove specific tooltips
+                removeSpecific: false
+
                 # width/length of the tooltip tail for positioning
                 tailLength: 14
 
                 # class to add to tooltip
                 tooltipClass: ''
+
+
 
             # Merge default settings with options
             settings = $.extend settings, options
@@ -283,7 +291,7 @@
 
 
             # hide tooltips
-            hideTooltip = () ->
+            hideTooltip = ->
 
                 # remove tooltip
                 $('.tooltip').fadeOut settings.fadeSpeed, ->
@@ -297,70 +305,118 @@
                 # element
                 ele = settings.element
 
-                # switch based on user action type (click, hover, focus)
-                switch settings.action
+                # if unbind but not removing all
+                if settings.removeSpecific and not settings.removeAll
 
-                    # on click
-                    when 'click'
+                    # log if debug is enabled
+                    log 'unbinding tooltip' if settings.debug
 
-                        $(document).on 'click', ele, (e) ->
+                    # if specified action
+                    if settings.action and ele
 
-                            #prevent default action
-                            e.preventDefault() if settings.preventDefault
+                        switch settings.action
 
-                            # focus on click element if it isnt an input or select box
-                            if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).attr('tabindex',0).focus()
+                            # disable click
+                            when 'click'
 
-                            # show tooltip
-                            showTooltip($(@))
+                                $(document).off 'click.tips.cd', ele
+                                $(document).off 'blur.tips.bc', ele
 
-                        $(document).on 'blur', ele, (e) ->
+                            # disable hover
+                            when 'hover'
 
-                            # when element loses focus (click away, etc) remove tabindex
-                            if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).removeAttr 'tabindex'
+                                $(document).off 'click.tips.hc', ele
+                                $(document).off 'mouseenter.tips.he', ele
+                                $(document).off 'mouseout.tips.ho', ele
 
-                            # when element loses focus (click away, etc) hide tooltip
-                            hideTooltip()
+                            # disable focus
+                            else
+
+                                $(document).off 'click.tips.fc', ele
+                                $(document).off 'focus.tips.ff', ele
+                                $(document).off 'blur.tips.fb', ele
+                                $(document).off 'change.tips.fch', ele
+
+                # if removing all
+                if settings.removeAll
+
+                    # log if debug is enabled
+                    log 'removing all tooltip binding' if settings.debug
+
+                    $(document).off 'click.tips'
+                    $(document).off 'blur.tips'
+                    $(document).off 'mouseenter.tips'
+                    $(document).off 'mouseout.tips'
+                    $(document).off 'change.tips'
 
 
-                    # on hover
-                    when 'hover'
+                # otherwise enable tooltips
+                if not settings.removeAll and not settings.removeSpecific
 
-                        $(document).on 'click', ele, (e) ->
+                    # switch based on user action type (click, hover, focus)
+                    switch settings.action
 
-                            #prevent default action
-                            e.preventDefault() if settings.preventDefault
+                        # on click
+                        when 'click'
 
-                        $(document).on 'mouseenter', ele, (e) ->
+                            $(document).on 'click.tips.cc', ele, (e) ->
 
-                            # when element loses focus (click away, etc) hide tooltip
-                            showTooltip $(@)
+                                #prevent default action
+                                e.preventDefault() if settings.preventDefault
 
-                        $(document).on 'mouseout', ele, (e) ->
+                                # focus on click element if it isnt an input or select box
+                                if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).attr('tabindex',0).focus()
 
-                            # when element loses focus (click away, etc) hide tooltip
-                            hideTooltip()
+                                # show tooltip
+                                showTooltip($(@))
+
+                            $(document).on 'blur.tips.bc', ele, (e) ->
+
+                                # when element loses focus (click away, etc) remove tabindex
+                                if not $(@).is(':input') and not $(@).attr('tabindex') then $(@).removeAttr 'tabindex'
+
+                                # when element loses focus (click away, etc) hide tooltip
+                                hideTooltip()
 
 
-                    # on focus
-                    else
+                        # on hover
+                        when 'hover'
 
-                        $(document).on 'click', ele, (e) ->
+                            $(document).on 'click.tips.hc', ele, (e) ->
 
-                            #prevent default action
-                            e.preventDefault() if settings.preventDefault
+                                #prevent default action
+                                e.preventDefault() if settings.preventDefault
 
-                        $(document).on 'focus', ele, (e) ->
+                            $(document).on 'mouseenter.tips.he', ele, (e) ->
 
-                            # when element loses focus (click away, etc) hide tooltip
-                            showTooltip $(@)
+                                # when element loses focus (click away, etc) hide tooltip
+                                showTooltip $(@)
 
-                        $(document).on 'blur', ele, (e) ->
+                            $(document).on 'mouseout.tips.ho', ele, (e) ->
 
-                            # when element loses focus (click away, etc) hide tooltip
-                            hideTooltip()
+                                # when element loses focus (click away, etc) hide tooltip
+                                hideTooltip()
 
-                        $(document).on 'change', ele, (e) ->
 
-                            # when element changes(select, etc) hide tooltip
-                            hideTooltip()
+                        # on focus
+                        else
+
+                            $(document).on 'click.tips.fc', ele, (e) ->
+
+                                #prevent default action
+                                e.preventDefault() if settings.preventDefault
+
+                            $(document).on 'focus.tips.ff', ele, (e) ->
+
+                                # when element loses focus (click away, etc) hide tooltip
+                                showTooltip $(@)
+
+                            $(document).on 'blur.tips.fb', ele, (e) ->
+
+                                # when element loses focus (click away, etc) hide tooltip
+                                hideTooltip()
+
+                            $(document).on 'change.tips.fch', ele, (e) ->
+
+                                # when element changes(select, etc) hide tooltip
+                                hideTooltip()

@@ -18,6 +18,8 @@
         fadeSpeed: 200,
         html5: true,
         preventDefault: false,
+        removeAll: false,
+        removeSpecific: false,
         tailLength: 14,
         tooltipClass: ''
       };
@@ -166,50 +168,85 @@
       return this(function() {
         var ele;
         ele = settings.element;
-        switch (settings.action) {
-          case 'click':
-            $(document).on('click', ele, function(e) {
-              if (settings.preventDefault) {
-                e.preventDefault();
-              }
-              if (!$(this).is(':input') && !$(this).attr('tabindex')) {
-                $(this).attr('tabindex', 0).focus();
-              }
-              return showTooltip($(this));
-            });
-            return $(document).on('blur', ele, function(e) {
-              if (!$(this).is(':input') && !$(this).attr('tabindex')) {
-                $(this).removeAttr('tabindex');
-              }
-              return hideTooltip();
-            });
-          case 'hover':
-            $(document).on('click', ele, function(e) {
-              if (settings.preventDefault) {
-                return e.preventDefault();
-              }
-            });
-            $(document).on('mouseenter', ele, function(e) {
-              return showTooltip($(this));
-            });
-            return $(document).on('mouseout', ele, function(e) {
-              return hideTooltip();
-            });
-          default:
-            $(document).on('click', ele, function(e) {
-              if (settings.preventDefault) {
-                return e.preventDefault();
-              }
-            });
-            $(document).on('focus', ele, function(e) {
-              return showTooltip($(this));
-            });
-            $(document).on('blur', ele, function(e) {
-              return hideTooltip();
-            });
-            return $(document).on('change', ele, function(e) {
-              return hideTooltip();
-            });
+        if (settings.removeSpecific && !settings.removeAll) {
+          if (settings.debug) {
+            log('unbinding tooltip');
+          }
+          if (settings.action && ele) {
+            switch (settings.action) {
+              case 'click':
+                $(document).off('click.tips.cd', ele);
+                $(document).off('blur.tips.bc', ele);
+                break;
+              case 'hover':
+                $(document).off('click.tips.hc', ele);
+                $(document).off('mouseenter.tips.he', ele);
+                $(document).off('mouseout.tips.ho', ele);
+                break;
+              default:
+                $(document).off('click.tips.fc', ele);
+                $(document).off('focus.tips.ff', ele);
+                $(document).off('blur.tips.fb', ele);
+                $(document).off('change.tips.fch', ele);
+            }
+          }
+        }
+        if (settings.removeAll) {
+          if (settings.debug) {
+            log('removing all tooltip binding');
+          }
+          $(document).off('click.tips');
+          $(document).off('blur.tips');
+          $(document).off('mouseenter.tips');
+          $(document).off('mouseout.tips');
+          $(document).off('change.tips');
+        }
+        if (!settings.removeAll && !settings.removeSpecific) {
+          switch (settings.action) {
+            case 'click':
+              $(document).on('click.tips.cc', ele, function(e) {
+                if (settings.preventDefault) {
+                  e.preventDefault();
+                }
+                if (!$(this).is(':input') && !$(this).attr('tabindex')) {
+                  $(this).attr('tabindex', 0).focus();
+                }
+                return showTooltip($(this));
+              });
+              return $(document).on('blur.tips.bc', ele, function(e) {
+                if (!$(this).is(':input') && !$(this).attr('tabindex')) {
+                  $(this).removeAttr('tabindex');
+                }
+                return hideTooltip();
+              });
+            case 'hover':
+              $(document).on('click.tips.hc', ele, function(e) {
+                if (settings.preventDefault) {
+                  return e.preventDefault();
+                }
+              });
+              $(document).on('mouseenter.tips.he', ele, function(e) {
+                return showTooltip($(this));
+              });
+              return $(document).on('mouseout.tips.ho', ele, function(e) {
+                return hideTooltip();
+              });
+            default:
+              $(document).on('click.tips.fc', ele, function(e) {
+                if (settings.preventDefault) {
+                  return e.preventDefault();
+                }
+              });
+              $(document).on('focus.tips.ff', ele, function(e) {
+                return showTooltip($(this));
+              });
+              $(document).on('blur.tips.fb', ele, function(e) {
+                return hideTooltip();
+              });
+              return $(document).on('change.tips.fch', ele, function(e) {
+                return hideTooltip();
+              });
+          }
         }
       });
     }

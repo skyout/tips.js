@@ -93,6 +93,25 @@ $.tips({
 });
 ```
 
+Specific tooltip bindings can be removed using the `removeSpecific` option. This required both an element and an action to be specified, otherwise the default `.error` and `focus` will be applied.
+
+```
+$.tips({
+    action: 'hover'
+    element: '.info'
+    removeSpecific: true
+});
+```
+
+All tooltips can be removed by using the `removeAll` option. This will remove all tooltip bindings.
+
+```
+$.tips({
+    action: 'hover'
+    element: '.info'
+    removeAll: true
+});
+```
 
 Options
 -------
@@ -101,14 +120,16 @@ Below are the supported options and their default values:
 
 ```
 settings = {
-    action: 'focus',         // tooltip display event (click, focus, hover)
-    debug: false,            // debug console
-    element: '.error'        // selector to run the tooltip on
-    fadeSpeed: 200,          // fade speed
-    html5: true,             // uses aside for tooltip instead of div for html5 supported browsers
-    preventDefault: false,   // prevent default event when element is clicked on
-    tailLength: 14,          // width/length of the tooltip tail for positioning
-    tooltipClass: ''         // class to add to tooltip
+    action: 'focus',            // tooltip display event (click, focus, hover)
+    debug: false,               // debug console
+    element: '.error'           // selector to run the tooltip on
+    fadeSpeed: 200,             // fade speed
+    html5: true,                // uses aside for tooltip instead of div for html5 supported browsers
+    preventDefault: false,      // prevent default event when element is clicked on
+    tailLength: 14,             // width/length of the tooltip tail for positioning
+    tooltipClass: '',           // class to add to tooltip
+    removeAll: false,           // removes all tooltip bindings
+    removeSpecific: false,      // removes specific tooltip binding (requires element and action)
 }
 ```
 
