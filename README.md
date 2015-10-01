@@ -127,7 +127,7 @@ settings = {
     tailLength: 14,             // width/length of the tooltip tail for positioning
     tooltipClass: '',           // class to add to tooltip
     removeAll: false,           // removes all tooltip bindings
-    removeSpecific: false,      // removes specific tooltip binding (requires element and action)
+    removeSpecific: false       // removes specific tooltip binding (requires element and action)
 }
 ```
 
