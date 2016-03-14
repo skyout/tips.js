@@ -8,13 +8,13 @@ Installation
 
 Install via npm:
 
-```
+```js
 npm install tips.js
 ```
 
 Install via bower:
 
-```
+```js
 bower install tips.js
 ```
 
@@ -26,19 +26,19 @@ Getting Started
 
 If using CommonJS:
 
-```
+```js
 var tips = require('tips.js');
 ```
 
 If using AMD:
 
-```
+```js
 require(['tips.js'], function () {});
 ```
 
 If using normal browser include:
 
-```
+```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascipt"></script>
 <script src="js/tips.js" type="text/javascript"></script>
 ```
@@ -50,7 +50,7 @@ Styling
 
 To use the pre-built CSS add the `tips.css` stylesheet in the head of your view:
 
-```
+```css
 <link href="css/tips.css" media="screen" rel="stylesheet" type="text/css" />
 ```
 
@@ -59,7 +59,7 @@ Using tip.js
 
 All of the files for the plugin can be found in the `build` directory. Add a `data-tooltip` attribute with the content of the tooltip.
 
-```
+```html
 <input type="email" id="email" data-tooltip="Please enter an email address" />
 ```
 
@@ -81,13 +81,13 @@ Line | Break    :   Line <br /> Break
 
 Specify the optional direction of the tooltip by adding the `data-tooltip-direction` attribute with the direction you'd like. The default is `right`, however acceptable values are `top`, `bottom`, `left`, and `right`.
 
-```
+```html
 <input type="email" id="email" data-tooltip="Please enter an email address" data-tooltip-direction="top" />
 ```
 
 Then invoke `$.tips` passing the selectors(s) you'd like to show tooltips.
 
-```
+```js
 $.tips({
     element: '.error'
 });
@@ -95,7 +95,7 @@ $.tips({
 
 Specific tooltip bindings can be removed using the `removeSpecific` option. This required both an element and an action to be specified, otherwise the default `.error` class and `focus` action will be removed.
 
-```
+```js
 $.tips({
     action: 'hover'
     element: '.info'
