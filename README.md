@@ -8,13 +8,13 @@ Installation
 
 Install via npm:
 
-```js
+```
 npm install tips.js
 ```
 
 Install via bower:
 
-```js
+```
 bower install tips.js
 ```
 
