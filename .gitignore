@@ -4,5 +4,8 @@
 # Node Modules
 node_modules/
 
+# NPM Debug Log
+npm-debug.log
+
 # Bower Components
 bower_components/
