@@ -105,7 +105,7 @@ $.tips({
 
 All tooltips binding can be removed by using the `removeAll` option.
 
-```
+```js
 $.tips({
     removeAll: true
 });
@@ -116,7 +116,7 @@ Options
 
 Below are the supported options and their default values:
 
-```
+```js
 settings = {
     action: 'focus',            // tooltip display event (click, focus, hover)
     debug: false,               // debug console
