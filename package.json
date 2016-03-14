@@ -28,7 +28,7 @@
         "compile-coffee": "coffee --bare --output dist/ --compile src/",
         "compile-stylus": "stylus stylus/tips.styl --out css/",
         "watch-coffee": "coffee --bare --watch --output dist/ --compile src/",
-        "watch-stylus": "stylus --watch stylus/tips.styl --out css/",
+        "watch-stylus": "stylus --watch stylus/tips.styl --out css/"
     },
     "keywords": [
         "tooltips",
