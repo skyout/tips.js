@@ -65,7 +65,7 @@ All of the files for the plugin can be found in the `build` directory. Add a `da
 
 Text can be formatted within the data-tooltip attribute via special characters.
 
-```
+```html
 ^heading^       :   <h1>Heading</h1>
 *bold*          :   <strong>bold</strong>
 ~italic~        :   <em>italic</em>
