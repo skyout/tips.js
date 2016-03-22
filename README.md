@@ -1,8 +1,7 @@
 tips.js
 =========
 
-[![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/tips.js)
-[![Bower](https://img.shields.io/bower/l/bootstrap.svg)](https://github.com/skyout/tips.js)
+[![npm](https://img.shields.io/npm/l/express.svg)](https://opensource.org/licenses/MIT)
 
 tips.js is a simple jQuery tooltip plugin.
 
