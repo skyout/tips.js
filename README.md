@@ -3,7 +3,7 @@ tips.js
 
 [![npm](https://img.shields.io/npm/l/express.svg)](https://opensource.org/licenses/MIT)
 
-tips.js is a simple jQuery tooltip plugin.
+*tips.js is a simple jQuery tooltip plugin.*
 
 Installation
 ------------
