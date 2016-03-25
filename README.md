@@ -149,8 +149,9 @@ Contributing and Updates
 I would definitely appreciate any feedback. I'm working on some ideas for the next version:
 
 1. Adding formatting for links in tooltips
-2. Detecting edge of screen and repositioning tooltips
-3. Adding more pre-defined CSS tooltip colors and classes
+2. Support for window resizing
+3. Detecting edge of screen and repositioning tooltips
+4. Adding more pre-defined CSS tooltip colors and classes
 
 Please fork and send pull requests, or create an <a href="https://github.com/slanningGH/tips.js/issues">issue</a>.
 
