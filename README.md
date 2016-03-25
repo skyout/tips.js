@@ -1,5 +1,7 @@
 <img src="https://raw.githubusercontent.com/skyout/tips.js/master/tips_logo.png" width="485" height="273" alt="tip.js" title="tips.js" />
 
+Description
+-----------
 
 [![npm](https://img.shields.io/npm/l/express.svg)](https://opensource.org/licenses/MIT)
 
