@@ -58,7 +58,7 @@ To use the pre-built CSS add the `tips.css` stylesheet in the head of your view:
 <link href="css/tips.css" media="screen" rel="stylesheet" type="text/css" />
 ```
 
-Using tip.js
+Using tips.js
 -------------
 
 All of the files for the plugin can be found in the `build` directory. Add a `data-tooltip` attribute with the content of the tooltip.
