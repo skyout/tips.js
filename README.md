@@ -7,6 +7,11 @@ Description
 
 tips.js is a simple jQuery tooltip plugin.
 
+Demo
+----
+
+A demo of the functionality and implementation can be found [here]
+
 Installation
 ------------
 
@@ -136,11 +141,6 @@ settings = {
 ```
 
 There are several built in CSS styles for the tooltips. Currently there are styles for error, warning, and informational tooltips. Utilize the `tooltipClass` option to set one of the aforementioned classes. You can also add or modify styles in the CSS to file to tailor the tooltips to your site.
-
-Demo
-----
-
-A demo of the functionality and implementation can be found [here]
 
 
 Contributing and Updates
