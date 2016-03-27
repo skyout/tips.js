@@ -153,7 +153,7 @@ I would definitely appreciate any feedback. I'm working on some ideas for the ne
 3. Detecting edge of screen and repositioning tooltips
 4. Adding more pre-defined CSS tooltip colors and classes
 
-Please fork and send pull requests, or create an <a href="https://github.com/slanningGH/tips.js/issues">issue</a>.
+Please fork and send pull requests, or create an <a href="https://github.com/skyout/tips.js/issues">issue</a>.
 
 
 License (MIT)
@@ -185,4 +185,4 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 [zip]:https://github.com/slanningGH/tips.js/archive/master.zip
-[here]:http://scott-lanning.com/demo/
+[here]:http://scott-lanning.com/tips.js/
