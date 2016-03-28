@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/skyout/tips.js/master/tips_logo.png" width="485" height="273" alt="tip.js" title="tips.js" />
+<a href="https://github.com/skyout/tips.js"><img src="https://raw.githubusercontent.com/skyout/tips.js/master/tips_logo.png" width="485" height="273" alt="tip.js" title="tips.js" /></a>
 
 Description
 -----------
