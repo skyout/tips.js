@@ -1,12 +1,12 @@
 {
   "name": "tips.js",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "homepage": "https://github.com/skyout/tips.js",
   "authors": [
     "Scott Lanning <skyout@gmail.com>"
   ],
   "description": "jQuery plugin for writing dynamic tooltips",
-  "main": "dist/index.js",
+  "main": "dist/js/tips.js",
   "moduleType": [
     "amd",
     "globals",

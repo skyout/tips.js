@@ -9,3 +9,6 @@ npm-debug.log
 
 # Bower Components
 bower_components/
+
+# Deployment Scripts
+Rakefile

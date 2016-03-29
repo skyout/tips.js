@@ -13,14 +13,21 @@
     header
         padding: 30px 5%
 
-    h1, h2
-        text-align: center
+        h1
+            border-radius(5px)
+            font-size: font-size + 30
+            height: 55px
+            margin-left: 35px
+            padding: 20px 0
+            width: 300px
 
-    h1
-        font-size: 36px
-
-        &:before, &:after
-            font-size: 48px
+            &:after
+                content: ''
+                border-bottom: 20px solid transparent
+                border-right: 30px solid #333
+                border-top: 20px solid transparent
+                left: -30px
+                margin-top: -20px
 
     h2
         font-size: 30px
@@ -29,79 +36,29 @@
     section
         padding: 30px 0
 
-    #single
-
-        figure
-            margin: 0 auto
-            width: 480px
-
-        img
-            height: auto
-            max-width: 478px
-            width: 100%
-
-        ul
-            float: none
-            margin: 0
-
-            &:first-of-type
-                margin-bottom: 20px
-
-    #repeat
-
-        figure
-            float: none
-            margin: 0 auto
-
-            &:first-of-type
-                float: none
-                margin: 0 auto 40px
-
-        img
-            height: auto
-            max-width: 480px
-            width: 100%
-
-    #gallery
-
-        figure
-            min-height: 315px
-            width: 47.5%
-
-            &:nth-child(odd)
-                float: right
-                margin-left: 5%
-
-            &:nth-child(even)
-                float: left
-                margin-left: 0
-
-            figcaption
-                text-align: center
-                margin-top: 20px
-
-            img
-                box-sizing: border-box
-                display: block
-                margin: 0 auto
-                height: auto
-                width: 100%
+    input, select
+        box-sizing: border-box
+        width: 100%
 
 
 @media screen and (max-width: 768px)
 
-    h1
-        font-size: 24px
+    header
 
-        &:before, &:after
-            display: none
+        h1
+            font-size: font-size + 18
+            height: 45px
+            margin: 0 auto
+            padding: 25px 0 20px
+            width: 250px
 
+            &:after
+                content: ''
+                border-bottom: 15px solid transparent
+                border-right: 25px solid #333
+                border-top: 15px solid transparent
+                left: -25px
+                margin-top: -15px
 
     h2
-        font-size: 20px
-
-
-    #gallery
-
-        figure
-            min-height: 255px
+        font-size: font-size + 4
