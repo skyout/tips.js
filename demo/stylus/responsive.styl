@@ -1,0 +1,107 @@
+@charset "UTF-8"
+@import "includes/_variables"
+@import "includes/_mixins"
+
+
+@media screen and (max-width: 1024px)
+
+    .center, header
+        padding: 0 5%
+        max-width: 90%
+        width: 90%
+
+    header
+        padding: 30px 5%
+
+    h1, h2
+        text-align: center
+
+    h1
+        font-size: 36px
+
+        &:before, &:after
+            font-size: 48px
+
+    h2
+        font-size: 30px
+
+
+    section
+        padding: 30px 0
+
+    #single
+
+        figure
+            margin: 0 auto
+            width: 480px
+
+        img
+            height: auto
+            max-width: 478px
+            width: 100%
+
+        ul
+            float: none
+            margin: 0
+
+            &:first-of-type
+                margin-bottom: 20px
+
+    #repeat
+
+        figure
+            float: none
+            margin: 0 auto
+
+            &:first-of-type
+                float: none
+                margin: 0 auto 40px
+
+        img
+            height: auto
+            max-width: 480px
+            width: 100%
+
+    #gallery
+
+        figure
+            min-height: 315px
+            width: 47.5%
+
+            &:nth-child(odd)
+                float: right
+                margin-left: 5%
+
+            &:nth-child(even)
+                float: left
+                margin-left: 0
+
+            figcaption
+                text-align: center
+                margin-top: 20px
+
+            img
+                box-sizing: border-box
+                display: block
+                margin: 0 auto
+                height: auto
+                width: 100%
+
+
+@media screen and (max-width: 768px)
+
+    h1
+        font-size: 24px
+
+        &:before, &:after
+            display: none
+
+
+    h2
+        font-size: 20px
+
+
+    #gallery
+
+        figure
+            min-height: 255px

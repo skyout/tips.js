@@ -20,21 +20,30 @@ aside.tooltip h1,
 div.tooltip h1 {
   font-size: 18px;
   font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 aside.tooltip strong,
 div.tooltip strong {
   font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 aside.tooltip em,
 div.tooltip em {
   font-style: italic;
+  margin: 0;
+  padding: 0;
 }
 aside.tooltip ul,
 div.tooltip ul {
   list-style: disc inside none;
+  margin: 0;
+  padding: 0;
 }
 aside.tooltip ul li,
 div.tooltip ul li {
+  margin: 0;
   padding: 0 5px;
 }
 aside.tooltip:after,

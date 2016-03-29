@@ -1,0 +1,119 @@
+@charset "UTF-8"
+@import "includes/_variables"
+@import "includes/_mixins"
+
+body
+    -webkit-font-smoothing: antialiased // font smoothing webkit mac
+    -moz-osx-font-smoothing: grayscale // font smoothing firefox osx
+    color: primary_font_color
+    font: normal normal normal font-size/line-height font-family
+    letter-spacing: -0.01em
+
+header
+    margin: 0 auto
+    padding: 40px 0
+    width: 960px
+
+    h1
+        border-radius(10px)
+        color: #fff
+        background: #333
+        font-size: font-size + 42
+        font-weight: 300
+        height: 65px
+        line-height: 1
+        margin-left: 40px
+        padding: 30px 0
+        position: relative
+        text-align: center
+        width: 350px
+
+        &:after
+            content: ''
+            border-bottom: 25px solid transparent
+            border-right: 45px solid #333
+            border-top: 25px solid transparent
+            left: -45px
+            margin-top: -25px
+            position: absolute
+            top: 50%
+
+h2
+    color: secondary_font_color
+    font-size: font-size + 18
+    font-weight: 300
+    margin-bottom: 40px
+
+li
+    margin-top: 30px
+
+    &:first-child
+        margin: 0
+
+form
+    max-width: 480px
+
+label
+    display: block
+    font-size: font-size
+    margin-bottom: 10px
+    font-weight: 600
+
+input, select
+    border-radius(3px)
+    border: 1px solid #ccc
+    color: primary_font_color
+    display: block
+    font-size: font-size
+    font-family: font-family
+    padding: 9px 12px 10px
+    margin-bottom: 20px
+    width: 454px
+
+    &:focus
+        box-shadow(none)
+        border-color: focus_color
+        outline: none
+
+    &.error
+        border-color: error_color
+
+        &:focus
+            box-shadow(none)
+            border-color: focus_color
+            outline: none
+
+select
+    width: 100%
+
+
+section
+    padding: 50px 0
+    background: primary_accent_color
+
+.center
+    center()
+    clearFix()
+
+.clicktips, .hover
+    border-radius(100%)
+    background: #e3e3e3
+    color: secondary_font_color
+    line-height: 1
+    font-size: font-size - 2
+    font-weight: 600
+    margin-left: 10px
+    padding: 3px 9px
+
+    &:hover
+        background: darken(#e3e3e3, 10%)
+
+#click, #formatted
+    background: #fff
+
+    h2
+        color: primary_font_color
+
+
+#formatted
+    margin-bottom: 60px

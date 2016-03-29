@@ -21,10 +21,15 @@
     "stylus": "^0.52.4"
   },
   "scripts": {
-    "compile-coffee": "coffee --bare --output dist/ --compile src/",
-    "compile-stylus": "stylus stylus/tips.styl --out css/",
-    "watch-coffee": "coffee --bare --watch --output dist/ --compile src/",
-    "watch-stylus": "stylus --watch stylus/tips.styl --out css/"
+    "compile:coffee": "coffee --bare --output dist/js/ --compile src/coffee/",
+    "compile:stylus": "stylus src/stylus/tips.styl --out dist/css/",
+    "watch:coffee": "coffee --bare --watch --output dist/js/ --compile src/coffee/",
+    "watch:stylus": "stylus --watch src/stylus/tips.styl --out dist/css/",
+    "watch:demo": "stylus --watch demo/stylus/styles.styl --out demo/css/",
+    "demo:coffee": "coffee --bare --output demo/js/ --compile src/coffee/",
+    "demo:stylus": "stylus --compress demo/stylus/styles.styl --out demo/css/",
+    "build": "npm run compile:coffee && npm run compile:stylus",
+    "build:demo": "npm run demo:coffee && npm run demo:stylus"
   },
   "keywords": [
     "tooltips",

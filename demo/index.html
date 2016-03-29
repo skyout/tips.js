@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>tips.js example</title>
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+        <link href="css/tips.css" rel="stylesheet" type="text/css">
+        <!--[If lt IE 9]>
+            <script src="js/html5shiv.min.js" type="text/javascript"></script>
+        <!-[endif]-->
+    </head>
+    <body>
+        <header>
+            <h1>tips.js</h1>
+        </header>
+        <main>
+            <section id="focus">
+                <div class="center">
+                    <h2>Focus</h2>
+                    <form novalidate="novalidate">
+                        <!-- Right tooltip -->
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" data-tooltip="Please enter a first name" class="error">
+                        <!-- Left tooltip -->
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" data-tooltip="Please enter a last name" data-tooltip-direction="left" class="error">
+                        <!-- Bottom tooltip -->
+                        <label for="email">Email</label>
+                        <input type="email" id="email" data-tooltip="Please enter a valid email address" data-tooltip-direction="bottom" class="error">
+                        <!-- Top tooltip -->
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" data-tooltip="Please enter a valid phone number" data-tooltip-direction="top" class="error">
+                        <label for="state">State</label>
+                        <select name="state" data-tooltip="Please enter a state" class="error">
+                            <option value="" selected="selected">Select a State</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </form>
+                </div>
+            </section>
+            <section id="click">
+                <div class="center">
+                    <h2>Click</h2>
+                    <p>Click the question mark for a warning tooltip: <a href="#" data-tooltip="This is a warning message" data-tooltip-direction="top" class="clicktips">?</a></p>
+                </div>
+            </section>
+            <section id="hover">
+                <div class="center">
+                    <h2>Hover</h2>
+                    <p>Hover over the question mark for a informational tooltip: <a href="#" data-tooltip="This is a informational message" data-tooltip-direction="top" class="hover">?</a></p>
+                </div>
+            </section>
+            <section id="formatted">
+                <div class="center">
+                    <h2>Formatted Text</h2>
+                    <ul>
+                        <li>Headers, bold, italics, and line breaks <a href="#" data-tooltip="^Title^ This text is *bold* and this text is ~italic~. | This is a new line." class="hover">?</a></li>
+                        <li>List in a tooltip <a href="#" data-tooltip="This is a list of items {`item one `item two `item three}" class="hover">?</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
+        <script src="js/tips.js" type="text/javascript"></script>
+        <script src="js/browser.js" type="text/javascript"></script>
+    </body>
+</html>

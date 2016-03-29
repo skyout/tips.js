@@ -1,0 +1,37 @@
+// border radius
+border-radius($radius = 5px)
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
+    -ms-border-radius: $radius
+    -k-border-radius: $radius
+    border-radius: $radius
+
+// box shadow
+box-shadow($params)
+    -webkit-box-shadow: $params
+    -moz-box-shadow: $params
+    -ms-box-shadow: $params
+    -k-box-shadow: $params
+    box-shadow: $params
+
+// center
+center($width = 960px)
+    margin: 0 auto
+    max-width: $width
+    width: 100%
+
+// clearfix
+clearFix()
+
+    &:after
+        clear: both
+        content: '.'
+        display: block
+        height: 0
+        visibility: hidden
+
+
+responsive-layout()
+    padding: 0 5%
+    margin: 0
+    width: 90%
