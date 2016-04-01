@@ -36,6 +36,7 @@ gulp.task "stylus", (err) ->
             compress: true
         })
         .pipe gulp.dest "dist/css"
+        .pipe gulp.dest "demo/css"
         .on "error", (err) ->
             throw err
 
