@@ -1,3 +1,5 @@
+"use strict"
+
 del                 = require "del"
 gulp                = require "gulp"
 changed             = require "gulp-changed"
@@ -6,12 +8,14 @@ stylus              = require "gulp-stylus"
 uglify              = require "gulp-uglify"
 runSequence         = require "run-sequence"
 
+Server              = require("karma").Server
+
 # clean out generated files
-gulp.task "clean", (err) ->
+gulp.task "clean", (done) ->
     return del ["dist/**/*", "demo/js/tips.js", "demo/css/**/*"]
 
 # compile coffee
-gulp.task "scripts", (err) ->
+gulp.task "scripts", (done) ->
 
     return gulp.src ["src/coffee/*.coffee"]
         .pipe changed "src/coffee/*.coffee"
@@ -26,7 +30,7 @@ gulp.task "scripts", (err) ->
             throw err
 
 # compile stylus
-gulp.task "stylus", (err) ->
+gulp.task "stylus", (done) ->
 
     # stylus for plugin
     gulp.src ["src/stylus/tips.styl"]
@@ -50,6 +54,15 @@ gulp.task "stylus", (err) ->
         .pipe gulp.dest "demo/css"
         .on "error", (err) ->
             throw err
+
+# unit test
+gulp.task "test", (done) ->
+
+    # karma server
+    new Server({
+        configFile: "#{__dirname}/../karma.conf.coffee"
+    }, done).start()
+
 
 # watch for changes
 gulp.task "watch", ->
