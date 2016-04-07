@@ -2,4 +2,4 @@ describe "test", ->
 
     it "should test something", ->
 
-        expect(true).toBe true
+        console.log $.tips
