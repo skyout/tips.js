@@ -2,4 +2,7 @@ describe "test", ->
 
     it "should test something", ->
 
-        console.log $.tips
+        # call plugin
+        plugin = $.tips('tips')
+
+        console.log plugin.render

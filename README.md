@@ -120,6 +120,25 @@ $.tips({
 });
 ```
 
+You can also specify a callback to fire after the tooltip has been instantiated as well.
+
+```js
+$.tips({
+    element: '.error'
+}, callback());
+```
+
+or
+
+```js
+$.tips({
+    element: '.error'
+}, function(){
+    // some logic here
+});
+```
+
+
 Options
 -------
 

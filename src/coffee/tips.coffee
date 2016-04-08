@@ -423,10 +423,13 @@
                             _this.hideTooltip()
 
 
-    $.extend tips: (options) ->
+    $.extend tips: (options, callback) ->
 
         # expose this
         @ ->
 
             # instantiate plugin
             tip = new tips options
+
+            # if callback is function, then call it
+            if typeof callback is 'function' then callback.call(this)
