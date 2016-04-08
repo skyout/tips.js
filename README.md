@@ -131,6 +131,7 @@ $.tips({
 }, callback());
 
 // anonymous
+
 $.tips({
     element: '.error'
 }, function(){
@@ -165,11 +166,11 @@ There are several built in CSS styles for the tooltips. Currently there are styl
 Contributing and Updates
 ------------------------
 
-I would definitely appreciate any feedback. I'm working on some ideas for the next version:
+I would definitely appreciate any feedback. I'm working on some ideas for the next release:
 
-1. Adding formatting for links in tooltips
+1. Detecting edge of screen and repositioning tooltips
 2. Support for window resizing
-3. Detecting edge of screen and repositioning tooltips
+3. Adding formatting for links in tooltips
 4. Adding more pre-defined CSS tooltip colors and classes
 
 Please fork and send pull requests, or create an <a href="https://github.com/skyout/tips.js/issues">issue</a>.
