@@ -123,14 +123,14 @@ $.tips({
 You can also specify a callback to fire after the tooltip has been instantiated as well.
 
 ```js
+
+// named
+
 $.tips({
     element: '.error'
 }, callback());
-```
 
-or
-
-```js
+// anonymous
 $.tips({
     element: '.error'
 }, function(){
