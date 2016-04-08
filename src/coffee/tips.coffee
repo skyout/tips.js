@@ -432,4 +432,4 @@
             tip = new tips options
 
             # if callback is function, then call it
-            if typeof callback is 'function' then callback.call(this)
+            callback.call(this) if typeof callback is 'function'

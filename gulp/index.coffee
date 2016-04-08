@@ -63,10 +63,10 @@ gulp.task "test", (done) ->
         configFile: "#{__dirname}/../karma.conf.coffee"
     }, done).start()
 
-
 # watch for changes
 gulp.task "watch", ->
     gulp.watch ["src/stylus/**/*.styl","demo/stylus/**/*.styl"], ["stylus"]
+    gulp.watch "test/**/*.coffee", ["test"]
     return gulp.watch "src/coffee/**/*.coffee", ["scripts"]
 
 # default gulp task

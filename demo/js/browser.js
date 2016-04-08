@@ -15,12 +15,12 @@
     preventDefault: true
     });
 
-    // hover tooltip with html5 disabled
+    // hover tooltip with html5 disabled and simple callback
     return $.tips({
         action: 'hover',
         element: '.hover',
         preventDefault: true,
         html5: false
-    });
+    }, console.info('simple tips.js plugin callback'));
 
 })(jQuery);

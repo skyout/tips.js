@@ -36,6 +36,7 @@
   },
   "scripts": {
     "start": "gulp",
+    "build": "gulp build",
     "test": "gulp test"
   },
   "keywords": [
