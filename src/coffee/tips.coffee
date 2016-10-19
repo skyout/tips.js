@@ -57,15 +57,15 @@
         constructor: (options) ->
 
             # merge default settings with options in new settings object for multiple instances
-            thissettings = $.extend {}, thisdefaults, options
+            this.settings = $.extend {}, this.defaults, options
 
             # display tooltip
-            thisrender()
+            this.render()
 
         log: (msg) =>
 
             # log debug message to console
-            console?.info msg if thissettings.debug
+            console?.info msg if this.settings.debug
 
         replaceCharacters: (txt) =>
 
@@ -157,19 +157,19 @@
             if ele.attr('data-tooltip')
 
                 # remove existing tooltips
-                thishideTooltip()
+                this.hideTooltip()
 
                 # error text
-                html = thisreplaceCharacters ele.attr 'data-tooltip'
+                html = this.replaceCharacters ele.attr 'data-tooltip'
 
                 # tooltip direction
                 direction = ele.attr 'data-tooltip-direction'
 
                 # if html5 is set to true then use an aside otherwise use a div
-                if thissettings.html5 then tooltipElement = '<aside>' else tooltipElement = '<div>'
+                if this.settings.html5 then tooltipElement = '<aside>' else tooltipElement = '<div>'
 
                 # append tooltip to body
-                $(tooltipElement).addClass('tooltip ' + thissettings.tooltipClass).html(html).appendTo 'body'
+                $(tooltipElement).addClass('tooltip ' + this.settings.tooltipClass).html(html).appendTo 'body'
 
                 # element width and height
                 elementWidthAdjustment = ele.outerWidth()
@@ -196,7 +196,7 @@
                     when 'left'
 
                         # right position (14 px added for tail)
-                        rightPosition = offset.left - tooltipWidthAdjustment - thissettings.tailLength
+                        rightPosition = offset.left - tooltipWidthAdjustment - this.settings.tailLength
 
                         # center tooltip tip in element
                         topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
@@ -207,13 +207,13 @@
                             left: rightPosition
                             top: topPosition
 
-                        ).addClass('left').fadeIn thissettings.fadeSpeed
+                        ).addClass('left').fadeIn this.settings.fadeSpeed
 
                     # bottom tooltip
                     when 'bottom'
 
                         # add adjustment for element height (14 px added for tail)
-                        topPosition = offset.top + elementHeightAdjustment + thissettings.tailLength
+                        topPosition = offset.top + elementHeightAdjustment + this.settings.tailLength
 
                         # left position centered in element
                         leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
@@ -225,13 +225,13 @@
                             left: leftPosition
                             top: topPosition
 
-                        ).addClass('bottom').fadeIn thissettings.fadeSpeed
+                        ).addClass('bottom').fadeIn this.settings.fadeSpeed
 
                     # bottom tooltip
                     when 'top'
 
                         # add adjustment for element height (14 px added for tail)
-                        topPosition = offset.top - tooltipHeightAdjustment - thissettings.tailLength
+                        topPosition = offset.top - tooltipHeightAdjustment - this.settings.tailLength
 
                         # left position centered in element
                         leftPosition = offset.left + (elementWidthAdjustment / 2) - (tooltipWidthAdjustment / 2)
@@ -243,13 +243,13 @@
                             left: leftPosition
                             top: topPosition
 
-                        ).addClass('top').fadeIn thissettings.fadeSpeed
+                        ).addClass('top').fadeIn this.settings.fadeSpeed
 
                     # otherwise right tooltip
                     else
 
                         # left position (14 px added for tail)
-                        leftPosition = offset.left + elementWidthAdjustment + thissettings.tailLength
+                        leftPosition = offset.left + elementWidthAdjustment + this.settings.tailLength
 
                         # center tooltip tip in element
                         topPosition = topPosition - (tooltipHeightAdjustment / 2) + (elementHeightAdjustment / 2)
@@ -260,40 +260,40 @@
                             left: leftPosition
                             top: topPosition
 
-                        ).fadeIn thissettings.fadeSpeed
+                        ).fadeIn this.settings.fadeSpeed
 
                 # log if debug is enabled
-                if thissettings.debug
+                if this.settings.debug
 
                     # log tooltip text
-                    thislog 'Tooltip Content: ' + html
+                    this.log 'Tooltip Content: ' + html
 
                     # log element width
-                    thislog 'Element Width: ' + elementWidthAdjustment if elementWidthAdjustment
+                    this.log 'Element Width: ' + elementWidthAdjustment if elementWidthAdjustment
 
                     # log element height
-                    thislog 'Element Height: ' + elementHeightAdjustment if elementHeightAdjustment
+                    this.log 'Element Height: ' + elementHeightAdjustment if elementHeightAdjustment
 
                     # log top position
-                    thislog 'Element Top Position: ' + topPosition if topPosition
+                    this.log 'Element Top Position: ' + topPosition if topPosition
 
                     # log left position
-                    thislog 'Element Left Position: ' + leftPosition if leftPosition
+                    this.log 'Element Left Position: ' + leftPosition if leftPosition
 
                     # log right position
-                    thislog 'Element Right Position: ' + rightPosition if rightPosition
+                    this.log 'Element Right Position: ' + rightPosition if rightPosition
 
                     # tooltip width
-                    thislog 'Tooltip Width: ' + tooltipWidthAdjustment if tooltipWidthAdjustment
+                    this.log 'Tooltip Width: ' + tooltipWidthAdjustment if tooltipWidthAdjustment
 
                     # tooltip height
-                    thislog 'Tooltip Height: ' + tooltipHeightAdjustment if tooltipHeightAdjustment
+                    this.log 'Tooltip Height: ' + tooltipHeightAdjustment if tooltipHeightAdjustment
 
         # hide tooltips
         hideTooltip: =>
 
             # remove tooltip
-            $('.tooltip').fadeOut thissettings.fadeSpeed, ->
+            $('.tooltip').fadeOut this.settings.fadeSpeed, ->
 
                 $(this).remove()
 
