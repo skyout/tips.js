@@ -106,8 +106,8 @@ Specific tooltip bindings can be removed using the `removeSpecific` option. This
 
 ```js
 $.tips({
-    action: 'hover'
-    element: '.info'
+    action: 'hover',
+    element: '.info',
     removeSpecific: true
 });
 ```
