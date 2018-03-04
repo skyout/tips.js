@@ -182,7 +182,7 @@ License (MIT)
 tips.js is distributed under the MIT License:
 
 ```
-Copyright (c) 2016 Scott Lanning
+Copyright (c) 2018 Scott Lanning
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
